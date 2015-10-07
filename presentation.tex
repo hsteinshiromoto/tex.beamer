@@ -1,0 +1,318 @@
+% !TEX encoding = UTF-8 Unicode
+% To be compiled with XeLaTeX
+
+\documentclass[xetex]{beamer}
+
+\usepackage[many]{tcolorbox}
+%\usepackage{tcolorbox}
+\tcbuselibrary{skins,xparse}
+
+
+\newcounter{ct}
+\newcounter{contribution}
+
+% put color to \boxed math command
+\newcommand*{\boxcolor}{orange}
+\makeatletter
+\renewcommand{\boxed}[1]{\textcolor{\boxcolor}{%
+\tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor\m@th$\displaystyle#1$};}}
+ \makeatother
+ \newcommand{\tboxed}[1]{\textcolor{\boxcolor}{%
+\tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor#1};}}
+ \makeatother
+
+\usepackage{etoolbox}
+
+\newtoggle{futura}
+%\toggletrue{futura}
+\togglefalse{futura}
+
+\newtoggle{roboto}
+%\toggletrue{roboto}
+\togglefalse{roboto}
+
+\newtoggle{default_font}
+\toggletrue{default_font}
+%\togglefalse{default_font}
+
+\newtoggle{presentation}
+\toggletrue{presentation}
+%\togglefalse{presentation}
+
+\newtoggle{euler}
+\toggletrue{euler}
+%\togglefalse{presentation}
+ 
+
+% Loads configuration file
+
+\input{./../../../Articles/config/presentation-cfg}
+\input{./../../../Articles/config/fonts}
+\input{./../../../Articles/config/commands}
+\input{./../../../Articles/config/environments}
+
+%\usepackage{fixmath}
+
+\setmainlanguage{english} %Set main language
+
+%%%%%%%%%%%%%%%%%%%%
+% BIBLATEX PACKAGE %
+%%%%%%%%%%%%%%%%%%%%
+
+% To be loaded locally after the language package
+\usepackage[maxnames =99,maxbibnames=99,natbib=true,backend=bibtex,style=alphabetic,firstinits=true,sorting=nty]{biblatex}
+\addbibresource{./../../../Library}
+
+
+
+
+
+\graphicspath{ {./imgs/} }
+\newcommand{\svginput}[1]{\input{imgs/#1}}
+
+%%%%%%%%%%%%%
+% TITLEPAGE %
+%%%%%%%%%%%%%
+
+% Needs to be loaded locally
+
+\usetikzlibrary{shapes,arrows}
+\setbeamerfont{author}{size=\LARGE}
+\setbeamerfont{institute}{size=\normalsize\itshape}
+\setbeamerfont{title}{size=\fontsize{24}{30}\bfseries}
+\setbeamerfont{subtitle}{size=\Large\normalfont\slshape}
+
+\setbeamertemplate{title page}{%
+\begin{tikzpicture}[remember picture,overlay]
+\fill[gblue700]
+  ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.north east);
+\node[anchor=east] 
+  at ([yshift=85pt]current page.south east) (author)
+  {\parbox[t]{\paperwidth}{\centering%
+    \usebeamerfont{author}\textcolor{gblue700}{%
+    \textpdfrender{
+    TextRenderingMode=FillStroke,
+    FillColor=gblue700,
+    LineWidth=.1ex,
+    }{\insertauthor}}}};
+%\node[anchor=south east] 
+%  at ([yshift=0pt]current page.south east) (institute)
+%  {\parbox[t]{.78\paperwidth}{\raggedleft%
+%    \usebeamerfont{institute}\textcolor{black}{\insertinstitute}}};
+\node[anchor=south] 
+  at ([yshift=0pt]current page.south) (logo)
+  {\parbox[t]{\paperwidth}{\centering%
+    \usebeamercolor[fg]{titlegraphic}\inserttitlegraphic}};
+\node[anchor=center]
+  at ([yshift=50pt,xshift=0pt]current page.center) (title)
+  {\parbox[t]{\textwidth}{\centering%
+ \usebeamerfont{author}\textcolor{white}{%
+    \textpdfrender{
+    TextRenderingMode=FillStroke,
+    FillColor=white,
+    LineWidth=.1ex,
+    }{\inserttitle}}}};
+\node[anchor=east]
+  at ([yshift=-60pt,xshift=-20pt]current page.east) (subtitle)
+  {\parbox[t]{.6\paperwidth}{\raggedleft\usebeamerfont{subtitle}\textcolor{black}{\insertsubtitle}}};
+\end{tikzpicture}
+}
+
+
+\title[XeLaTeX Template]{My XeLaTeX Template}
+\author[H. Stein Shiromoto (humberto.shiromoto@ieee.org)]{Humberto Stein Shiromoto}
+\institute{The University of Sydney}
+\date[19/05/15]{\today}
+\titlegraphic{
+\begin{minipage}[b]{0.45\linewidth}
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=2.5cm]{./imgs/Usyd_new_logo}
+\end{figure}
+\end{minipage}
+\begin{minipage}[b]{0.45\linewidth}
+\begin{figure}[htbp!]
+\centering
+\includegraphics[width=2cm]{./imgs/ACFR_Logo}
+\end{figure}
+\end{minipage}}
+
+\begin{document}
+
+\tikzstyle{every picture}+=[remember picture]
+
+% By default all math in TikZ nodes are set in inline mode. Change this to
+% displaystyle so that we don't get small fractions.
+\everymath{\displaystyle}
+	
+	{
+	%Highlight section in navigation bar
+	\setbeamertemplate{section in head/foot shaded}[default][100]
+	\setbeamercolor{upper separation line head}{bg=gblue700}
+	% Highlight dots
+	\setbeamertemplate{mini frame in other subsection}[default][100]
+	% Highlight and fill dots
+%	\setbeamertemplate{mini frame in other subsection}{%
+%    \begin{pgfpicture}{0pt}{0pt}{0.1cm}{0.1cm}%
+%        \pgfpathcircle{\pgfpoint{0.05cm}{0.05cm}}{0.05cm}%
+%        \pgfusepath{fill,stroke}%
+%    \end{pgfpicture}%
+%    }%
+		
+	
+	
+	\frame{
+		\maketitle	
+	}	}
+	
+	\section[Text, items, equations, and figures]{Tests with text, items, equations, and figures}	
+	\subsection[First subsection]{Text and Equations}	
+	\frame[c]{
+		\frametitle{The first frame: text}
+		\begin{adjustwidth}{-2em}{-2em}
+		\blindtext
+		\end{adjustwidth}
+	}
+	
+	\frame[c]{
+		\frametitle{The First Frame: equation}
+		\begin{adjustwidth}{-2em}{-2em}
+		\blindmathpaper
+		\end{adjustwidth}
+	}
+	
+	\subsection{Items and lists}
+	\frame[c]{
+		\frametitle{The second frame: items}
+		\begin{adjustwidth}{-2em}{-2em}
+		\blindlist{itemize}[3]	
+		\end{adjustwidth}
+	}
+	
+	\frame[c]{
+		\frametitle{The third frame: numbered items}
+		\begin{adjustwidth}{-2em}{-2em}
+		\blindlist{enumerate}[5]	
+		\end{adjustwidth}
+	}
+	
+	\frame[c]{
+		\frametitle{The fourth frame: description list}
+		\begin{adjustwidth}{-2em}{-2em}
+		\blindlist{description}[2]	
+		\end{adjustwidth}
+	}
+	
+	
+	\subsection{Figure}
+	\frame[c]{
+		\frametitle{The Second Frame: a figure}
+		\begin{adjustwidth}{-2em}{-2em}
+		\begin{figure}[htpb!]
+			\centering
+			\scalebox{0.75}{\input{./imgs/set_evolution.ps_tex}}
+		\end{figure}
+		\end{adjustwidth}
+		}
+	
+	\section{Tests with boxes}
+	\subsection{Box without shadows}
+	\frame[c]{
+		\frametitle{Without shadows}
+		
+		\begin{tcolorbox}[title=A test]
+This is an equation
+\begin{equation*}
+	\int_{X(t,\bZ)}\rho\,dx-\int_\bZ=\int_0^t\int_{X(s,\bZ)}\diverg(\rho f)(x)\,dx
+\end{equation*}
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}
+This is a tcolorbox.
+\end{tcolorbox}\par\bigskip
+}
+
+	\subsection{Lifted shadows}
+	
+	\frame[c]{
+	\frametitle{Lifted shadows}
+				\begin{tcolorbox}[drop lifted shadow]
+This is a tcolorbox.
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}[title=Another shadow,
+drop lifted shadow]
+This is a tcolorbox.
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}[drop lifted shadow]
+\begin{equation*}
+	\dx=f(x)
+\end{equation*}
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}[code={\pgfkeysalsofrom\redblock},title=A test,drop lifted shadow]
+Test.
+\end{tcolorbox}		
+	}
+	
+	
+	\subsection{Midday Shadows}
+	
+	\frame[c]{
+		\frametitle{Midday shadows}
+		
+		\begin{tcolorbox}[drop fuzzy midday shadow,
+enhanced,colback=red!5!white,colframe=gred900]
+This is a tcolorbox.
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}[title=Another shadow,drop fuzzy midday shadow,
+enhanced,colback=red!5!white,colframe=gred900]
+This is a tcolorbox.
+\end{tcolorbox}
+}
+
+			\frame[c]{
+	\frametitle{Small boxes with midday, and lifted shadows}
+	\begin{minipage}[c]{0.30\linewidth}
+	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop fuzzy midday shadow,hbox]
+Test.
+\end{tcolorbox}
+\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop fuzzy midday shadow,hbox]
+Test.
+\end{tcolorbox}
+	\end{minipage}
+	\begin{minipage}[c]{0.30\linewidth}
+	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow,hbox]
+Test.
+\end{tcolorbox}
+\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop lifted shadow,hbox]
+Test.
+\end{tcolorbox}
+	\end{minipage}
+	\begin{minipage}[c]{0.30\linewidth}
+	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop fuzzy shadow south,hbox]
+Test.
+\end{tcolorbox}
+\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop fuzzy shadow south,hbox]
+Test.
+\end{tcolorbox}
+	\end{minipage}
+	
+	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow]
+	\begin{varwidth}{\textwidth}
+	The text
+	
+       $\int_{X(t,\bZ)}\rho\,dx-\int_\bZ=\int_0^t\int_{X(s,\bZ)}\diverg(\rho f)(x)\,dx$
+       \end{varwidth}
+       \end{tcolorbox}
+	}
+	
+	
+	\section{Theorem-like environments}
+	\subsection{Theorem environments}
+	\frame[c]{	
+		\frametitle{ToDo}
+	
+	}
+	\subsection{Definition environments}
+	
+	\subsection{Example environments}
+		
+\end{document}

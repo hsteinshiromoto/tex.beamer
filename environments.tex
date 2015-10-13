@@ -1,0 +1,97 @@
+% \usepackage{ntheorem} % Do not use this package
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+\iftoggle{presentation}{%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%																	%
+% Block environments												%
+%																	%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{blocks}[default]
+
+% Normal block environment settings
+\setbeamercolor{structure}{bg=gblue500,fg=white}
+\setbeamercolor*{block title}{fg=white,
+bg=gblue500}
+\setbeamercolor*{block body}{fg=black,
+bg=gblue100}
+
+% Example block settings
+\setbeamercolor*{block title example}{fg=white,
+bg=ggreen700}
+\setbeamercolor*{block body example}{fg=black,
+bg=ggreen100}
+\setbeamercolor{example text}{fg=black}
+
+% Alert block settings
+\setbeamercolor*{block title alerted}{fg=white,
+bg=gred500}
+\setbeamercolor*{block body alerted}{fg=black,
+bg=gred100}
+\setbeamercolor{alerted text}{fg=black}
+
+\newcommand*\redblock{enhanced,colback=gred50,
+boxrule=0.4pt,sharp corners,
+colframe=gred900,fonttitle=\bfseries}
+
+\newcommand*\postitblock{enhanced,colback=postitcolor,
+boxrule=0.4pt,sharp corners,
+colframe=postitcolor,fonttitle=\bfseries}
+
+\newcommand*\whiteblock{enhanced,colback=white,
+boxrule=0.4pt,sharp corners,
+colframe=ggrey300,fonttitle=\bfseries}
+
+\tcbset{enhanced,colback=gblue50,
+boxrule=0.4pt,sharp corners,
+colframe=gblue700,fonttitle=\bfseries}
+
+}{
+
+\iftoggle{chapter}{%
+
+	\declaretheorem[style=plain,qed=$\square$,numberwithin=chapter]{theorem}
+
+}{
+
+	\declaretheorem[style=plain,qed=$\square$,numberwithin=section]{theorem}
+
+}
+
+% Theorem environments
+
+\declaretheorem[style=plain,qed=$\square$,sibling=theorem]{lemma}
+\declaretheorem[style=plain,qed=$\square$,sibling=theorem]{corollary}
+\declaretheorem[style=plain,qed=$\square$,sibling=theorem]{proposition}
+\declaretheorem[style=plain,qed=$\square$,sibling=theorem]{claim}
+\declaretheorem[style=plain,qed=$\square$,sibling=theorem]{conjecture}
+
+% Remark and definition environments
+\declaretheorem[style=definition,qed=$\circ$,sibling=theorem]{assumption}
+\crefname{assumption}{Assumption}{Assumptions}
+\Crefname{assumption}{Assumption}{Assumptions}
+\declaretheorem[style=definition,qed=$\circ$,sibling=theorem]{definition}
+\declaretheorem[style=definition,qed=$\circ$,sibling=theorem]{remark}
+
+\declaretheorem[style=definition,qed=$\square$,numberwithin=section,]{question}
+\declaretheorem[style=definition,qed=$\square$,numberwithin=section,]{comment}
+\declaretheorem[style=definition,qed=$\blacksquare$,numbered=no]{answer}
+
+% Example environments
+
+\declaretheorem[style=definition,qed=$\diamond$,sibling=theorem]{example}
+
+% Proof environment
+\declaretheoremstyle[
+  spaceabove=6pt, spacebelow=6pt,
+  headfont=\normalfont\slshape,
+  notefont=\normalfont\slshape, notebraces={(}{)},
+  bodyfont=\normalfont,
+  postheadspace=1em,
+  qed=$\blacksquare$
+]{proofstyle}
+\declaretheorem[name=Proof,style=proofstyle,numbered=no]{theproof}
+}

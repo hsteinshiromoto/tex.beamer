@@ -24,16 +24,16 @@
 \usepackage{etoolbox}
 
 \newtoggle{futura}
-%\toggletrue{futura}
-\togglefalse{futura}
+\toggletrue{futura}
+%\togglefalse{futura}
 
 \newtoggle{roboto}
 %\toggletrue{roboto}
 \togglefalse{roboto}
 
 \newtoggle{default_font}
-\toggletrue{default_font}
-%\togglefalse{default_font}
+%\toggletrue{default_font}
+\togglefalse{default_font}
 
 \newtoggle{presentation}
 \toggletrue{presentation}
@@ -264,6 +264,22 @@ This is a tcolorbox.
 \end{tcolorbox}\par\bigskip
 \begin{tcolorbox}[title=Another shadow,drop fuzzy midday shadow,
 enhanced,colback=red!5!white,colframe=gred900]
+This is a tcolorbox.
+\end{tcolorbox}
+}
+
+\frame[t]{
+	\frametitle{Variations on the title: available if \texttt{normal} and \texttt{light} defined}
+	\begin{tcolorbox}[title=Another shadow,
+drop lifted shadow]
+This is a tcolorbox.
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}[fonttitle=\normal,title=Another shadow,
+drop lifted shadow]
+This is a tcolorbox.
+\end{tcolorbox}\par\bigskip
+\begin{tcolorbox}[fonttitle=\light,title=Another shadow,
+drop lifted shadow]
 This is a tcolorbox.
 \end{tcolorbox}
 }

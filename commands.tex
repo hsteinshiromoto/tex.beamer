@@ -1,3 +1,5 @@
+% !TEX encoding = UTF-8 Unicode
+% To be compiled with XeLaTeX
 
 % To redeclare a MathOperator: begin
 % Not compatible with arXiv !
@@ -39,6 +41,7 @@
 \newcommand{\Liploc}{\cL\mathpzc{ip}_\mathrm{loc}}
 \newcommand{\Ploc}{\mathcal{P}_{\mathrm{loc}}}
 \renewcommand{\ae}{\mathrm{for\ a.e.\ }}
+\RedeclareMathOperator{\Re}{\mathtt{Re}}
 \newcommand*{\qedf}{\hfill\ensuremath{\blacksquare}}
 \newcommand*{\qede}{\hfill\ensuremath{\blacksquare}}
 
@@ -63,12 +66,20 @@
 \DeclareMathOperator{\grad}{\mathtt{grad}}
 \DeclareMathOperator*{\esssup}{\mathtt{ess\ sup}}
 
+% Colors
+
+\newcommand{\black}{\color{black}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\red}{\color{red}}
 \newcommand{\new}{\color{black}}
 \renewcommand{\stop}{\color{black}}
 
-\newcommand{\blue}{\color{blue}}
-\newcommand{\red}{\color{red}}
-\newcommand{\black}{\color{black}}
+\newcommand{\dif}[1]{\dot{\overgroup{\delta #1}}}
+\ifxetex
+	\newcommand{\widedot}[1]{\dot{\overgroup{#1}}}
+\else
+	\renewcommand{\widedot}[1]{\dot{\overgroup{#1}}}
+\fi
+
+\definecolor{white}{HTML}{FFFFFF}
 \newcommand{\white}{\color{white}}
-\newcommand{\green}{\color{green!50!black}}
-\newcommand{\magenta}{\color{magenta}}

@@ -29,6 +29,9 @@
 \usepackage{mathrsfs}
 
 \iftoggle{futura}{%
+
+	% Download Futura first
+
     \usefonttheme{serif}  %Necessary to use with Helvetica and Futura
 	\usepackage{fontspec}
 	\usepackage{xunicode}
@@ -36,18 +39,30 @@
 		\defaultfontfeatures{Mapping=tex-text}
 		\defaultfontfeatures{Ligatures={TeX,Common}}
 		\setmainfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Futura LT Medium}
-		%\setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
-	
-		\newfontfamily{\custom_font}[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Futura LT Medium}
-		\newfontfamily{\custom_font_light}[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Futura LT Light}
+		
+		
+		% Do not add "Numbers=OldStyle" for the options of the fonts below
+		\setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
+		
+		\newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Medium}
+		\newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Light}
 		%\newfontfamily{\billy}[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{billy}
 }{}
 
 \iftoggle{roboto}{%
+
+	% Download Robot from Google SkyFonts
+
   \usepackage{fontspec}
   \defaultfontfeatures{Mapping=tex-text}
 
- \setmainfont{Roboto}
+  \setmainfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Roboto}
+  
+  % Do not add "Numbers=OldStyle" for the options of the fonts below
+  \newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Roboto}
+  \newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Roboto Thin}
+  \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
+ 
 }{}
   % electronic
   \iftoggle{default_font}{%
@@ -289,10 +304,6 @@ pdfproducer={}
 % Removes shadow from title page box
 \setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
 
-\iftoggle{futura}{%
-\setbeamerfont{title page}{family={\custom_font}}
-}{}
-
 %%%%%%%%%%%%%%
 % Frametitle %
 %%%%%%%%%%%%%%
@@ -303,9 +314,6 @@ pdfproducer={}
 
 \setbeamercolor{frametitle}{fg=white,bg=gblue700}
 
-\iftoggle{futura}{%
-\setbeamerfont{frametitle}{family={\custom_font}}
-}{}
 
 %%%%%%%%%%%%
 % Headline %

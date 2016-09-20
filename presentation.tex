@@ -1,7 +1,39 @@
 % !TEX encoding = UTF-8 Unicode
-% To be compiled with XeLaTeX
+% !TEX TS-program = xelatex
 
 \documentclass[xetex]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer settings
+
+\mode<presentation>
+{
+  %\usetheme{Frankfurt}
+  \useoutertheme[subsection=false]{smoothbars}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{navigation symbols}{} %remove navigation symbols
+  \setbeamercovered{invisible} %No transparent layers
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typefaces
+
+%\usepackage{fontspec} 
+%
+%\usepackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+%\setmainfont[Mapping=tex-text]{Palatino Linotype}
+%\setmonofont[Mapping=tex-text]{DejaVuSansMono.ttf}
+%\setsansfont[Mapping=tex-text, Color=textcolor,
+%BoldFont=FuturaLT-Heavy.ttf,
+%ItalicFont=FuturaLT-Oblique.ttf,
+%BoldItalicFont=FuturaLT-HeavyOblique.ttf
+%]
+%{FuturaLT.ttf}
+%
+%\newfontfamily\thinfont[]{FuturaLT-Light.ttf}
+%\newfontfamily\thinitalicfont[]{FuturaLT-LightOblique.ttf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[many]{tcolorbox}
 %\usepackage{tcolorbox}

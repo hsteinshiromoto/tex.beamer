@@ -16,27 +16,39 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AMS - like packages: must be loaded before the math and fontspec
+
+ \RequirePackage{amsmath}
+ \usepackage{mathtools}
+ \usepackage{amsfonts,amssymb} % AMS fonts and symbols package
+ \usepackage{mathrsfs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typefaces
 
-%\usepackage{fontspec} 
-%
-%\usepackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
-%\setmainfont[Mapping=tex-text]{Palatino Linotype}
-%\setmonofont[Mapping=tex-text]{DejaVuSansMono.ttf}
-%\setsansfont[Mapping=tex-text, Color=textcolor,
-%BoldFont=FuturaLT-Heavy.ttf,
-%ItalicFont=FuturaLT-Oblique.ttf,
-%BoldItalicFont=FuturaLT-HeavyOblique.ttf
-%]
-%{FuturaLT.ttf}
-%
-%\newfontfamily\thinfont[]{FuturaLT-Light.ttf}
-%\newfontfamily\thinitalicfont[]{FuturaLT-LightOblique.ttf}
+\usefonttheme{professionalfonts} %Necessary to use with Euler
+\usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
+
+\usepackage{mathspec}
+
+\usepackage{fontspec} 
+
+% \usepackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\setmainfont[Mapping=tex-text]{Palatino Linotype}
+\setmonofont[Mapping=tex-text]{DejaVuSansMono.ttf}
+\setsansfont[Mapping=tex-text, Color=textcolor,
+BoldFont=FuturaLT-Heavy.ttf,
+ItalicFont=FuturaLT-Oblique.ttf,
+BoldItalicFont=FuturaLT-HeavyOblique.ttf
+]
+{FuturaLT.ttf}
+
+\newfontfamily\thinfont[]{FuturaLT-Light.ttf}
+\newfontfamily\thinitalicfont[]{FuturaLT-LightOblique.ttf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[many]{tcolorbox}
-%\usepackage{tcolorbox}
 \tcbuselibrary{skins,xparse}
 
 
@@ -56,8 +68,8 @@
 \usepackage{etoolbox}
 
 \newtoggle{futura}
-\toggletrue{futura}
-%\togglefalse{futura}
+%\toggletrue{futura}
+\togglefalse{futura}
 
 \newtoggle{roboto}
 %\toggletrue{roboto}
@@ -78,10 +90,10 @@
 
 % Loads configuration file
 
-\input{./../../../Articles/config/presentation-cfg}
-\input{./../../../Articles/config/fonts}
-\input{./../../../Articles/config/commands}
-\input{./../../../Articles/config/environments}
+%\input{./../../../Articles/config/presentation-cfg}
+%\input{./../../../Articles/config/fonts}
+%\input{./../../../Articles/config/commands}
+%\input{./../../../Articles/config/environments}
 
 %\usepackage{fixmath}
 

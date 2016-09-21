@@ -19,12 +19,8 @@
 
 \iftoggle{futura}{%
 
-	% Download Futura first
-
-    \usefonttheme{serif}  %Necessary to use with Helvetica and Futura
+    %\usefonttheme{serif}  % Necessary to use with Helvetica and Futura ?
 	\usepackage{fontspec}
-	
-	
 		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase,Color=textcolor}
 		\setromanfont[Numbers=OldStyle]{Palatino Linotype} % Preserve this order to have sans serif as main font
 		\setmainfont[Numbers=OldStyle,
@@ -50,7 +46,7 @@
 		
 		\newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Medium}
 		\newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Light}
-		%\newfontfamily{\billy}[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{billy}
+
 }{}
 
 \iftoggle{roboto}{%

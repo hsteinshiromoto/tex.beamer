@@ -27,21 +27,28 @@
 	\usepackage{fontspec}
 	\usepackage{xunicode}
 	\usepackage{xltxtra} 
-		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase}
+		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase,Color=textcolor}
+		\setromanfont[Numbers=OldStyle]{Palatino Linotype} % Preserve this order to have sans serif as main font
 		\setmainfont[Numbers=OldStyle,
-		Color=textcolor,
 		BoldFont=FuturaLT-Heavy.ttf,
 		ItalicFont=FuturaLT-Oblique.ttf,
 		BoldItalicFont=FuturaLT-HeavyOblique.ttf]
 		{FuturaLT.ttf}
-		
-		\setromanfont[Numbers=OldStyle]{Palatino Linotype}
-		
-		\newfontfamily\thinfont{FuturaLT-Light.ttf}
-		\newfontfamily\thinitalicfont{FuturaLT-LightOblique.ttf}
-		
+		\setsansfont[Numbers=OldStyle,
+		BoldFont=FuturaLT-Heavy.ttf,
+		ItalicFont=FuturaLT-Oblique.ttf,
+		BoldItalicFont=FuturaLT-HeavyOblique.ttf]
+		{FuturaLT.ttf}
 		% Do not add "Numbers=OldStyle" for the options of the fonts below
 		\setmonofont{DejaVuSansMono.ttf}
+		
+		\newfontfamily\thinfont[Numbers=OldStyle,ItalicFont=FuturaLT-LightOblique.ttf]{FuturaLT-Light.ttf}
+		
+		
+		
+		
+		
+		
 		
 		\newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Medium}
 		\newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Light}

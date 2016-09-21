@@ -27,9 +27,13 @@
 	\usepackage{fontspec}
 	\usepackage{xunicode}
 	\usepackage{xltxtra} 
-		\defaultfontfeatures{Mapping=tex-text}
-		\defaultfontfeatures{Ligatures={TeX,Common}}
-		\setmainfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Futura LT Medium}
+		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase,}
+		\setmainfont[Numbers=OldStyle,
+		Color=textcolor,
+		BoldFont=FuturaLT-Heavy.ttf,
+		ItalicFont=FuturaLT-Oblique.ttf,
+		BoldItalicFont=FuturaLT-HeavyOblique.ttf]
+		{FuturaLT.ttf}
 		
 		
 		% Do not add "Numbers=OldStyle" for the options of the fonts below

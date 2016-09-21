@@ -2,14 +2,14 @@
 % To be compiled with XeLaTeX
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% AMS MATH PACKAGE
-\usepackage{amsmath}
-
+% AMS packages
+\usepackage{amsmath,amsfonts,amssymb} % AMS fonts and symbols package
+\usepackage{mathrsfs}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LOADING FONTS FOR XELATEX COMPILATION
 %
-\usepackage{amsfonts,amssymb} % AMS fonts and symbols package
+
 
 \usefonttheme{professionalfonts} %Necessary to use with Euler
 \usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
@@ -17,7 +17,7 @@
 \usepackage{mathspec}
 		%\setmathrm[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Palatino Linotype}
 		
-\usepackage{mathrsfs}
+
 
 \iftoggle{futura}{%
 

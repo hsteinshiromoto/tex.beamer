@@ -41,11 +41,11 @@
 % LANGUAGE PACKAGE
 
 % Needs to be loaded locally and after the fontspec package
-\ifxetex
-	\usepackage{polyglossia}
-\else
-	\usepackage{babel}
-\fi
+
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=british]{english}
+\setotherlanguages{french,portuges,italian}
+
 \usepackage{csquotes}
 
 

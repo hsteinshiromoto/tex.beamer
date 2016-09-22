@@ -17,8 +17,6 @@
 \usepackage{mathspec}
 		%\setmathrm[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Palatino Linotype}
 
-\iftoggle{futura}{%
-
     %\usefonttheme{serif}  % Necessary to use with Helvetica and Futura ?
 	\usepackage{fontspec}
 		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase,Color=textcolor}
@@ -37,40 +35,9 @@
 		\setmonofont{DejaVuSansMono.ttf}
 		
 		\newfontfamily\thinfont[Numbers=OldStyle,ItalicFont=FuturaLT-LightOblique.ttf]{FuturaLT-Light.ttf}
-		
-		
-		
-		
-		
-		
-		
+
 		\newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Medium}
 		\newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Light}
-
-}{}
-
-\iftoggle{roboto}{%
-
-	% Download Robot from Google SkyFonts
-
-  \usepackage{fontspec}
-  \defaultfontfeatures{Mapping=tex-text}
-
-  \setmainfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Roboto}
-  
-  % Do not add "Numbers=OldStyle" for the options of the fonts below
-  \newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Roboto}
-  \newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Roboto Thin}
-  \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
- 
-}{}
-  % electronic
-  \iftoggle{default_font}{%
-  \usepackage{fontspec}
-  }
-  
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LANGUAGE PACKAGE

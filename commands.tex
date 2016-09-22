@@ -1,5 +1,4 @@
 % !TEX encoding = UTF-8 Unicode
-% To be compiled with XeLaTeX
 
 % To redeclare a MathOperator: begin
 % Not compatible with arXiv !
@@ -22,7 +21,7 @@
 \makeatother
 % end %
 
-% Commands with x
+% Commands
 
 \newcommand{\dx}{\dot{x}}
 \newcommand{\dy}{\dot{y}}
@@ -30,6 +29,7 @@
 \newcommand{\lloc}{\mathcal{L}_\mathrm{loc}}
 \newcommand{\cl}{\mathtt{cl}}
 \newcommand{\dom}{\mathtt{dom}}
+\newcommand{\domp}{\mathtt{dom}_{\geq0}}
 \newcommand{\im}{\mathtt{im}}
 \newcommand{\OSC}{\mathcal{OSC}}
 \newcommand{\AC}{\mathcal{AC}}
@@ -42,16 +42,28 @@
 \newcommand{\Ploc}{\mathcal{P}_{\mathrm{loc}}}
 \renewcommand{\ae}{\mathrm{for\ a.e.\ }}
 \RedeclareMathOperator{\Re}{\mathtt{Re}}
+\RedeclareMathOperator{\Im}{\mathtt{Im}}
 \newcommand*{\qedf}{\hfill\ensuremath{\blacksquare}}
 \newcommand*{\qede}{\hfill\ensuremath{\blacksquare}}
 
 \newcommand{\pfrac}[2]{\raisebox{1pt}{\small \ensuremath{#1}}$/$\raisebox{-2pt}{\small \ensuremath{#2}}}
 
+% Commands with tt
+
+
+% Operators
+
+\DeclareMathOperator{\range}{\mathtt{range}}
+\DeclareMathOperator{\wnull}{\mathtt{null}}
 \DeclareMathOperator{\diag}{\mathtt{diag}}
 \DeclareMathOperator{\dist}{\mathtt{dist}}
 \DeclareMathOperator{\diverg}{\mathtt{div}}
 \RedeclareMathOperator{\div}{\mathtt{div}}
 \DeclareMathOperator{\sat}{\mathtt{sat}}
+\DeclareMathOperator{\real}{\mathtt{real}}
+\DeclareMathOperator{\rank}{\mathtt{rank}}
+
+\DeclareMathOperator*{\argmin}{\mathtt{argmin}} %Note: the * that follows \DeclareMathOperator sets the underscored option (the argument) underneath the operator like the \lim operator.
 
 \DeclareMathOperator{\interior}{\mathtt{int}}
 \DeclareMathOperator{\ext}{\mathtt{ext}}
@@ -74,12 +86,12 @@
 \newcommand{\new}{\color{black}}
 \renewcommand{\stop}{\color{black}}
 
-\newcommand{\dif}[1]{\dot{\overgroup{\delta #1}}}
-\ifxetex
-	\newcommand{\widedot}[1]{\dot{\overgroup{#1}}}
-\else
-	\renewcommand{\widedot}[1]{\dot{\overgroup{#1}}}
-\fi
+%\newcommand{\dif}[1]{\dot{\overgroup{\delta #1}}}
+%\ifxetex
+%	\newcommand{\widedot}[1]{\dot{\overgroup{#1}}}
+%\else
+%	\renewcommand{\widedot}[1]{\dot{\overgroup{#1}}}
+%\fi
 
 \definecolor{white}{HTML}{FFFFFF}
 \newcommand{\white}{\color{white}}

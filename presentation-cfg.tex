@@ -19,16 +19,20 @@
 	\usepackage{fontspec}
 		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase,Color=textcolor}
 		\setromanfont[Numbers=OldStyle]{Palatino Linotype} % Preserve this order to have sans serif as main font
-		\setmainfont[Numbers=OldStyle,
-		BoldFont=FuturaLT-Heavy.ttf,
-		ItalicFont=FuturaLT-Oblique.ttf,
-		BoldItalicFont=FuturaLT-HeavyOblique.ttf]
-		{FuturaLT.ttf}
-		\setsansfont[Numbers=OldStyle,
-		BoldFont=FuturaLT-Heavy.ttf,
-		ItalicFont=FuturaLT-Oblique.ttf,
-		BoldItalicFont=FuturaLT-HeavyOblique.ttf]
-		{FuturaLT.ttf}
+		\setsansfont[
+					Extension 	   = .otf,
+					UprightFont	   = *-regular,
+					BoldFont	   = *-bold,
+					ItalicFont	   = *-italic,
+					BoldItalicFont = *-bolditalic]
+					{texgyreheros}
+		\setsansfont[
+					Extension 	   = .otf,
+					UprightFont	   = *-regular,
+					BoldFont	   = *-bold,
+					ItalicFont	   = *-italic,
+					BoldItalicFont = *-bolditalic]
+					{texgyreheros}
 		% Do not add "Numbers=OldStyle" for the options of the fonts below
 		\setmonofont{DejaVuSansMono.ttf}
 		

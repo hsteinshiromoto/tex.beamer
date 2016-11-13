@@ -18,7 +18,13 @@
     %\usefonttheme{serif}  % Necessary to use with Helvetica and Futura ?
 	\usepackage{fontspec}
 		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchLowercase,Color=textcolor}
-		\setromanfont[Numbers=OldStyle]{Palatino Linotype} % Preserve this order to have sans serif as main font
+		\setromanfont[Extension      = .ttf,
+					  UprightFont	 = *,
+					  BoldFont		 = *-Bold,
+					  ItalicFont	 = *-Oblique,
+					  BoldItalicFont = *-BoldOblique]
+			{Adobe Garamond Pro}
+		
 		\setsansfont[
 					Extension 	   = .otf,
 					UprightFont	   = *-regular,

@@ -59,8 +59,21 @@
 %%%%%%%%%%%%%%%%%%%%
 
 % To be loaded locally after the language package
-\usepackage[maxnames =99,maxbibnames=99,natbib=true,backend=bibtex,style=alphabetic,firstinits=true,sorting=nty]{biblatex}
-\addbibresource{./../../../Library}
+
+\usepackage[natbib=true,backend=biber,style=alphabetic,sorting=anyvt,
+firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bibencoding=utf8]{biblatex}
+
+\IfFileExists{./../Library.bib}{
+
+ \addbibresource{./../../../Library}
+ 
+}{
+
+  %Must be used with biber as backend
+  %Execute with "biber SeparableMetrics"
+  \addbibresource[location=remote]{https://www.dropbox.com/s/r00o9lw76cksxvj/Library.bib?dl=1} 
+}
+
 
 
 

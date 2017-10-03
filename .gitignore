@@ -125,3 +125,6 @@ sympy-plots-for-*.tex/
 *.sav
 *.ttf
 /presentation.pdf
+*.ai
+*.svg
+*.jpg

@@ -28,11 +28,11 @@
 			{Adobe_Garamond_Pro}
 		
 		\setsansfont[
-					Extension 	   = .otf,
-					UprightFont	   = *-regular,
-					BoldFont	   = *-bold,
-					ItalicFont	   = *-italic,
-					BoldItalicFont = *-bolditalic]
+          Extension      = .otf,
+          UprightFont    = *-regular,
+          BoldFont       = *-bold,
+          ItalicFont     = *-italic,
+          BoldItalicFont = *-bolditalic]
 					{texgyreheros}
 		\setsansfont[
 					Extension 	   = .otf,
@@ -42,9 +42,12 @@
 					BoldItalicFont = *-bolditalic]
 					{texgyreheros}
 		% Do not add "Numbers=OldStyle" for the options of the fonts below
-		% \setmonofont[UprightFont 	= Inconsolata-Regular.ttf,
-		% 			 BoldFont   	= Inconsolata-Bold.ttf]
-		% 			{Inconsolata-Regular.ttf}
+		\setmonofont[
+           Path = fonts/,
+           Extension      = .ttf,
+           UprightFont 	= *-Regular,
+           BoldFont   	= *-Bold]
+					{Inconsolata}
 		
 		% \newfontfamily\thinfont[Numbers=OldStyle,ItalicFont=FuturaLT-LightOblique.ttf]{FuturaLT-Light.ttf}
 

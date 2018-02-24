@@ -18,12 +18,14 @@
 	\usepackage{fontspec}
 		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchUppercase,Color=textcolor}
 
-		\setromanfont[Extension      = .ttf,
-					  UprightFont	 = *,
-					  BoldFont		 = *-Bold,
-					  ItalicFont	 = *-Oblique,
-					  BoldItalicFont = *-BoldOblique]
-			{Adobe Garamond Pro}
+		\setromanfont[
+            Path = fonts/,
+            Extension      = .ttf,
+            UprightFont    = *,
+            BoldFont       = *-Bold,
+            ItalicFont     = *-Oblique,
+            BoldItalicFont = *-BoldOblique]
+			{Adobe_Garamond_Pro}
 		
 		\setsansfont[
 					Extension 	   = .otf,

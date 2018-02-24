@@ -47,10 +47,10 @@
 
 % Loads configuration file
 
-\input{./presentation-cfg}
-\input{./../../../Articles/config/fonts}
-\input{./../../../Articles/config/commands}
-\input{./../../../Articles/config/environments}
+\input{presentation-cfg.tex}
+\input{fonts.tex}
+\input{commands.tex}
+\input{environments.tex}
 
 %\usepackage{fixmath}
 
@@ -186,6 +186,8 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		\end{adjustwidth}
 	}
 	
+\end{document}
+
 	\frame[c]{
 		\frametitle{The First Frame: equation}
 		\begin{adjustwidth}{-2em}{-2em}
@@ -220,10 +222,10 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 	\frame[c]{
 		\frametitle{The Second Frame: a figure}
 		\begin{adjustwidth}{-2em}{-2em}
-		\begin{figure}[htpb!]
-			\centering
-			\scalebox{0.75}{\input{./imgs/set_evolution.ps_tex}}
-		\end{figure}
+		% \begin{figure}[htpb!]
+		% 	\centering
+		% 	\scalebox{0.75}{\input{./imgs/set_evolution.ps_tex}}
+		% \end{figure}
 		\end{adjustwidth}
 		}
 	
@@ -255,9 +257,9 @@ drop lifted shadow]
 This is a tcolorbox.
 \end{tcolorbox}\par\bigskip
 \begin{tcolorbox}[drop lifted shadow]
-\begin{equation*}
-	\dx=f(x)
-\end{equation*}
+%\begin{equation*}
+%	\dot{x}=f(x)
+%\end{equation*}
 \end{tcolorbox}\par\bigskip
 \begin{tcolorbox}[code={\pgfkeysalsofrom\redblock},title=A test,drop lifted shadow]
 Test.
@@ -286,14 +288,14 @@ This is a tcolorbox.
 drop lifted shadow]
 This is a tcolorbox.
 \end{tcolorbox}\par\bigskip
-\begin{tcolorbox}[fonttitle=\normal,title=Another shadow,
-drop lifted shadow]
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}[fonttitle=\light,title=Another shadow,
-drop lifted shadow]
-This is a tcolorbox.
-\end{tcolorbox}
+%\begin{tcolorbox}[fonttitle=\normal,title=Another shadow,
+%drop lifted shadow]
+%This is a tcolorbox.
+%\end{tcolorbox}\par\bigskip
+%\begin{tcolorbox}[fonttitle=\light,title=Another shadow,
+%drop lifted shadow]
+%This is a tcolorbox.
+%\end{tcolorbox}
 }
 
 			\frame[c]{

@@ -143,12 +143,6 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 \includegraphics[width=2.5cm]{./imgs/Usyd_new_logo}
 \end{figure}
 \end{minipage}
-% \begin{minipage}[b]{0.45\linewidth}
-% \begin{figure}[htbp!]
-% \centering
-% \includegraphics[width=2cm]{./imgs/ACFR_Logo}
-% \end{figure}
-% \end{minipage}
 }
 
 \begin{document}
@@ -221,10 +215,10 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 	\frame[c]{
 		\frametitle{The Second Frame: a figure}
 		\begin{adjustwidth}{-2em}{-2em}
-		% \begin{figure}[htpb!]
-		% 	\centering
-		% 	\scalebox{0.75}{\input{./imgs/set_evolution.ps_tex}}
-		% \end{figure}
+		\begin{figure}[htpb!]
+			\centering
+			\scalebox{0.75}{\input{./imgs/set_evolution.eps_tex}}
+		\end{figure}
 		\end{adjustwidth}
 		}
 	\section{Tests with boxes}
@@ -242,7 +236,7 @@ This is an equation
 This is a tcolorbox.
 \end{tcolorbox}\par\bigskip
 }
-\end{document}
+
 	\subsection{Lifted shadows}
 	
 	\frame[c]{
@@ -255,15 +249,15 @@ drop lifted shadow]
 This is a tcolorbox.
 \end{tcolorbox}\par\bigskip
 \begin{tcolorbox}[drop lifted shadow]
-%\begin{equation*}
-%	\dot{x}=f(x)
-%\end{equation*}
+\begin{equation*}
+% Todo: check why \dot{x} doesn't work
+	\dfrac{dx}{dt}=f(x)
+\end{equation*}
 \end{tcolorbox}\par\bigskip
 \begin{tcolorbox}[code={\pgfkeysalsofrom\redblock},title=A test,drop lifted shadow]
 Test.
 \end{tcolorbox}		
 	}
-	
 	
 	\subsection{Midday Shadows}
 	
@@ -280,21 +274,22 @@ This is a tcolorbox.
 \end{tcolorbox}
 }
 
-\frame[t]{
-	\frametitle{Variations on the title: available if \texttt{normal} and \texttt{light} defined}
-	\begin{tcolorbox}[title=Another shadow,
-drop lifted shadow]
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
-%\begin{tcolorbox}[fonttitle=\normal,title=Another shadow,
-%drop lifted shadow]
-%This is a tcolorbox.
-%\end{tcolorbox}\par\bigskip
-%\begin{tcolorbox}[fonttitle=\light,title=Another shadow,
-%drop lifted shadow]
-%This is a tcolorbox.
-%\end{tcolorbox}
-}
+% \frame[t]{
+% 	% Requires definition of \normal and \light fonts
+% 	\frametitle{Variations on the title: available if \texttt{normal} and \texttt{light} defined}
+% 	\begin{tcolorbox}[title=Another shadow,
+% drop lifted shadow]
+% This is a tcolorbox.
+% \end{tcolorbox}\par\bigskip
+% \begin{tcolorbox}[fonttitle=\normal,title=Another shadow,
+% drop lifted shadow]
+% This is a tcolorbox.
+% \end{tcolorbox}\par\bigskip
+% \begin{tcolorbox}[fonttitle=\light,title=Another shadow,
+% drop lifted shadow]
+% This is a tcolorbox.
+% \end{tcolorbox}
+% }
 
 			\frame[c]{
 	\frametitle{Small boxes with midday, and lifted shadows}
@@ -327,11 +322,10 @@ Test.
 	\begin{varwidth}{\textwidth}
 	The text
 	
-       $\int_{X(t,\bZ)}\rho\,dx-\int_\bZ=\int_0^t\int_{X(s,\bZ)}\diverg(\rho f)(x)\,dx$
+       $\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx$
        \end{varwidth}
        \end{tcolorbox}
 	}
-	
 	
 	\section{Theorem-like environments}
 	\subsection{Theorem environments}

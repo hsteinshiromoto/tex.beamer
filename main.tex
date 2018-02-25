@@ -137,18 +137,19 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 \institute{The University of Sydney}
 \date[19/05/15]{\today}
 \titlegraphic{
-\begin{minipage}[b]{0.45\linewidth}
+\begin{minipage}[b]{0.95\linewidth}
 \begin{figure}[htbp!]
 \centering
 \includegraphics[width=2.5cm]{./imgs/Usyd_new_logo}
 \end{figure}
 \end{minipage}
-\begin{minipage}[b]{0.45\linewidth}
-\begin{figure}[htbp!]
-\centering
-\includegraphics[width=2cm]{./imgs/ACFR_Logo}
-\end{figure}
-\end{minipage}}
+% \begin{minipage}[b]{0.45\linewidth}
+% \begin{figure}[htbp!]
+% \centering
+% \includegraphics[width=2cm]{./imgs/ACFR_Logo}
+% \end{figure}
+% \end{minipage}
+}
 
 \begin{document}
 
@@ -186,16 +187,14 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		\blindtext
 		\end{adjustwidth}
 	}
-	
-\end{document}
 
 	\frame[c]{
 		\frametitle{The First Frame: equation}
 		\begin{adjustwidth}{-2em}{-2em}
-		\blindmathpaper
+		% \blindmathpaper % Gives errors!
 		\end{adjustwidth}
 	}
-	
+
 	\subsection{Items and lists}
 	\frame[c]{
 		\frametitle{The second frame: items}
@@ -203,7 +202,7 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		\blindlist{itemize}[3]	
 		\end{adjustwidth}
 	}
-	
+
 	\frame[c]{
 		\frametitle{The third frame: numbered items}
 		\begin{adjustwidth}{-2em}{-2em}
@@ -218,7 +217,6 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		\end{adjustwidth}
 	}
 	
-	
 	\subsection{Figure}
 	\frame[c]{
 		\frametitle{The Second Frame: a figure}
@@ -229,7 +227,6 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		% \end{figure}
 		\end{adjustwidth}
 		}
-	
 	\section{Tests with boxes}
 	\subsection{Box without shadows}
 	\frame[c]{
@@ -238,14 +235,14 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		\begin{tcolorbox}[title=A test]
 This is an equation
 \begin{equation*}
-	\int_{X(t,\bZ)}\rho\,dx-\int_\bZ=\int_0^t\int_{X(s,\bZ)}\diverg(\rho f)(x)\,dx
+	\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx
 \end{equation*}
 \end{tcolorbox}\par\bigskip
 \begin{tcolorbox}
 This is a tcolorbox.
 \end{tcolorbox}\par\bigskip
 }
-
+\end{document}
 	\subsection{Lifted shadows}
 	
 	\frame[c]{

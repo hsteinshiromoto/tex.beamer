@@ -16,46 +16,25 @@
 \usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
 
 \usepackage{mathspec}
-		%\setmathrm[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Palatino Linotype}
-
+		
 \usepackage{fontspec}
-		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchUppercase,Color=textcolor}
+	\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchUppercase,Color=textcolor}
+	
+	\setsansfont[
+        Extension      = .otf,
+        UprightFont    = *-regular,
+        BoldFont       = *-bold,
+        ItalicFont     = *-italic,
+        BoldItalicFont = *-bolditalic]
+				{texgyreheros}
 
-		% \setromanfont[
-  %           Path = fonts/,
-  %           Extension      = .ttf,
-  %           UprightFont    = *,
-  %           BoldFont       = *-Bold,
-  %           ItalicFont     = *-Oblique,
-  %           BoldItalicFont = *-BoldOblique]
-		% 	{Adobe_Garamond_Pro}
-		
-		\setsansfont[
-          Extension      = .otf,
-          UprightFont    = *-regular,
-          BoldFont       = *-bold,
-          ItalicFont     = *-italic,
-          BoldItalicFont = *-bolditalic]
-					{texgyreheros}
-		\setsansfont[
-					Extension 	   = .otf,
-					UprightFont	   = *-regular,
-					BoldFont	   = *-bold,
-					ItalicFont	   = *-italic,
-					BoldItalicFont = *-bolditalic]
-					{texgyreheros}
-		% Do not add "Numbers=OldStyle" for the options of the fonts below
-		% \setmonofont[
-  %          Path = fonts/,
-  %          Extension      = .ttf,
-  %          UprightFont 	= *-Regular,
-  %          BoldFont   	= *-Bold]
-		% 			{Inconsolata}
-		
-		% \newfontfamily\thinfont[Numbers=OldStyle,ItalicFont=FuturaLT-LightOblique.ttf]{FuturaLT-Light.ttf}
-
-		% \newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Medium}
-		% \newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Light}
+	\setsansfont[
+				Extension 	   = .otf,
+				UprightFont	   = *-regular,
+				BoldFont	   = *-bold,
+				ItalicFont	   = *-italic,
+				BoldItalicFont = *-bolditalic]
+				{texgyreheros}
 
 % ---	
 % Definition of Commands: \newhtought, \allcaps, \smallcaps and \textsc
@@ -339,31 +318,31 @@ pdfproducer={}
 %%%%%%%%%%%%
 %\setbeamerfont{headline}{series=\bfseries}
 \setbeamercolor{section in head/foot}{fg=white, bg=black}
-\setbeamercolor{upper separation line head}{bg=white}
+% \setbeamercolor{upper separation line head}{bg=white}
 \setbeamertemplate{section in head/foot shaded}{\color{white!50!black}\insertsectionhead}
 
-\makeatletter
-\setbeamertemplate{headline}
-{%
-  \pgfuseshading{beamer@barshade}%
-  \ifbeamer@sb@subsection%
-    \vskip-9.75ex%
-  \else%
-    \vskip-7ex%
-  \fi%
-  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
-    \insertnavigation{\paperwidth}
-  \end{beamercolorbox}%
-  \ifbeamer@sb@subsection%
-    \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
-      leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
-      \usebeamerfont{subsection in head/foot}\insertsubsectionhead
-    \end{beamercolorbox}%
-  \fi%
- \begin{beamercolorbox}[colsep=1.5pt,ht=0.75ex]{upper separation line head}
- \end{beamercolorbox}
-}%
-\makeatother
+% \makeatletter
+% \setbeamertemplate{headline}
+% {%
+%   \pgfuseshading{beamer@barshade}%
+%   \ifbeamer@sb@subsection%
+%     \vskip-9.75ex%
+%   \else%
+%     \vskip-7ex%
+%   \fi%
+%   \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+%     \insertnavigation{\paperwidth}
+%   \end{beamercolorbox}%
+%   \ifbeamer@sb@subsection%
+%     \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
+%       leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
+%       \usebeamerfont{subsection in head/foot}\insertsubsectionhead
+%     \end{beamercolorbox}%
+%   \fi%
+%  \begin{beamercolorbox}[colsep=1.5pt,ht=0.75ex]{upper separation line head}
+%  \end{beamercolorbox}
+% }%
+% \makeatother
 
 
 %%%%%%%%%%%%

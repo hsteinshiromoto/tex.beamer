@@ -1,31 +1,34 @@
 % !TEX encoding = UTF-8 Unicode
 % !TEX TS-program = xelatex
+% !TEX root = ../main.tex
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% AMS-like packages
+% ---
+% AMS Packages
+% ---
 \usepackage{amsmath,amsfonts,amssymb} % AMS fonts and symbols package
 \usepackage{mathrsfs}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---
 % Typeface Settings
+% ---
 
-\usefonttheme{professionalfonts} %Necessary to use with Euler: This is a beamer setting!
+\usefonttheme{professionalfonts} %Necessary to use with Euler
 \usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
 
 \usepackage{mathspec}
 		%\setmathrm[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Palatino Linotype}
 
-	\usepackage{fontspec}
+\usepackage{fontspec}
 		\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchUppercase,Color=textcolor}
 
-		\setromanfont[
-            Path = fonts/,
-            Extension      = .ttf,
-            UprightFont    = *,
-            BoldFont       = *-Bold,
-            ItalicFont     = *-Oblique,
-            BoldItalicFont = *-BoldOblique]
-			{Adobe_Garamond_Pro}
+		% \setromanfont[
+  %           Path = fonts/,
+  %           Extension      = .ttf,
+  %           UprightFont    = *,
+  %           BoldFont       = *-Bold,
+  %           ItalicFont     = *-Oblique,
+  %           BoldItalicFont = *-BoldOblique]
+		% 	{Adobe_Garamond_Pro}
 		
 		\setsansfont[
           Extension      = .otf,
@@ -42,19 +45,21 @@
 					BoldItalicFont = *-bolditalic]
 					{texgyreheros}
 		% Do not add "Numbers=OldStyle" for the options of the fonts below
-		\setmonofont[
-           Path = fonts/,
-           Extension      = .ttf,
-           UprightFont 	= *-Regular,
-           BoldFont   	= *-Bold]
-					{Inconsolata}
+		% \setmonofont[
+  %          Path = fonts/,
+  %          Extension      = .ttf,
+  %          UprightFont 	= *-Regular,
+  %          BoldFont   	= *-Bold]
+		% 			{Inconsolata}
 		
 		% \newfontfamily\thinfont[Numbers=OldStyle,ItalicFont=FuturaLT-LightOblique.ttf]{FuturaLT-Light.ttf}
 
 		% \newfontfamily{\normal}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Medium}
 		% \newfontfamily{\light}[Mapping=tex-text,Scale=MatchLowercase]{Futura LT Light}
-		
-% Definition of the \newhtought, \allcaps, \smallcaps and \textsc
+
+% ---	
+% Definition of Commands: \newhtought, \allcaps, \smallcaps and \textsc
+% ---
 
 \usepackage{textcase}
 
@@ -88,10 +93,9 @@
  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
 
-% End of the definition of the \newthought command ---------
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---
 % Language Settings
+% ---
 
 % Needs to be loaded locally and after the fontspec package
 

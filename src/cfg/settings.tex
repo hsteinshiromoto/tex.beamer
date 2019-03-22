@@ -354,11 +354,11 @@ pdfproducer={}
     \else
   \leavevmode%
   \hbox{%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{footline}%
-    \usebeamerfont{author in head/foot}\insertshortauthor
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
+    \usebeamerfont{author in head/foot}\hspace{2em}\insertshortauthor
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{footline}%
-    \usebeamerfont{title in head/foot}\insertshorttitle\hfill(\insertframenumber{} / \inserttotalframenumber)
+  \begin{beamercolorbox}[wd=.75\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hfill(\insertframenumber{} / \inserttotalframenumber) \hspace{2em}
   \end{beamercolorbox}
   }%
   \vskip0pt%

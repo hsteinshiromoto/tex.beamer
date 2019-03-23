@@ -255,7 +255,8 @@ pdfproducer={}
 %\setbeamerfont{headline}{series=\bfseries}
 \setbeamercolor{section in head/foot}{fg=white, bg=black}
 % \setbeamercolor{upper separation line head}{bg=white}
-\setbeamertemplate{section in head/foot shaded}{\color{white!50!black}\insertsectionhead}
+\setbeamertemplate{section in head/foot shaded}%
+                  {\color{white!100!black}\insertsectionhead}
 
 % \makeatletter
 % \setbeamertemplate{headline}
@@ -265,8 +266,8 @@ pdfproducer={}
 %     \vskip-9.75ex%
 %   \else%
 %     \vskip-7ex%
-%   \fi%
-%   \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+%   \begin{beamercolorbox}[ignorebg,ht=
+%   \fi%2.25ex,dp=3.75ex]{section in head/foot}
 %     \insertnavigation{\paperwidth}
 %   \end{beamercolorbox}%
 %   \ifbeamer@sb@subsection%

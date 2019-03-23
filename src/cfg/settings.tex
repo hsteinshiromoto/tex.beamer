@@ -11,7 +11,6 @@
 % ---
 % Typeface Settings
 % ---
-
 \usefonttheme{professionalfonts} %Necessary to use with Euler
 \usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
 
@@ -27,42 +26,6 @@
         ItalicFont     = *-italic,
         BoldItalicFont = *-bolditalic]
 				{texgyreheros}
-
-% ---	
-% Definition of Commands: \newhtought, \allcaps, \smallcaps and \textsc
-% ---
-
-\usepackage{textcase}
-
-\newskip\tufteskipamount
-\tufteskipamount=1.0\baselineskip plus 0.5ex minus 0.2ex
-
-\newcommand{\tuftebreak}{\par\ifdim\lastskip<\tufteskipamount
-  \removelastskip\penalty-100\tufteskip\fi}
-
-\newcommand{\tufteskip}{\vspace\tufteskipamount}
-
-\def\smallcapsspacing{\@tufte@warning{Proper spacing of small-caps letters has not been set up.}}
-
-\DeclareTextFontCommand{\textsmallcaps}{\scshape}
-\def\allcapsspacing{\@tufte@warning{Proper spacing of ALL-CAPS letters has not been set up.}}
-\def\smallcapsspacing{\@tufte@warning{Proper spacing of small-caps letters has not been set up.}}
-\newcommand{\allcaps}[1]{\allcapsspacing{\MakeTextUppercase{#1}}}
-\newcommand{\smallcaps}[1]{\smallcapsspacing{\MakeTextLowercase{#1}}}
-
-\newcommand{\textls}[2][5]{%
-    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
-  }
-  
-  \providecommand\newthought[1]{%
-   \tuftebreak
-   \noindent\textsc{#1}%
-}
-\renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
- \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
- \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
- \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
- \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
 
 % ---
 % Language Settings

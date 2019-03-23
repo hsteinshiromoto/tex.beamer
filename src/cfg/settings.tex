@@ -11,14 +11,16 @@
 % ---
 % Typeface Settings
 % ---
-
 \usefonttheme{professionalfonts} %Necessary to use with Euler
-\usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
+
+ % Load BEFORE mathspec AND fontspec packages
+\usepackage[small,euler-digits,euler-hat-accent]{eulervm}
 
 \usepackage{mathspec}
 		
 \usepackage{fontspec}
-	\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchUppercase,Color=textcolor}
+	\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},
+                       Scale=MatchUppercase,Color=textcolor}
 	
 	\setsansfont[
         Extension      = .otf,
@@ -28,67 +30,20 @@
         BoldItalicFont = *-bolditalic]
 				{texgyreheros}
 
-	\setsansfont[
-				Extension 	   = .otf,
-				UprightFont	   = *-regular,
-				BoldFont	   = *-bold,
-				ItalicFont	   = *-italic,
-				BoldItalicFont = *-bolditalic]
-				{texgyreheros}
-
-% ---	
-% Definition of Commands: \newhtought, \allcaps, \smallcaps and \textsc
-% ---
-
-\usepackage{textcase}
-
-\newskip\tufteskipamount
-\tufteskipamount=1.0\baselineskip plus 0.5ex minus 0.2ex
-
-\newcommand{\tuftebreak}{\par\ifdim\lastskip<\tufteskipamount
-  \removelastskip\penalty-100\tufteskip\fi}
-
-\newcommand{\tufteskip}{\vspace\tufteskipamount}
-
-\def\smallcapsspacing{\@tufte@warning{Proper spacing of small-caps letters has not been set up.}}
-
-\DeclareTextFontCommand{\textsmallcaps}{\scshape}
-\def\allcapsspacing{\@tufte@warning{Proper spacing of ALL-CAPS letters has not been set up.}}
-\def\smallcapsspacing{\@tufte@warning{Proper spacing of small-caps letters has not been set up.}}
-\newcommand{\allcaps}[1]{\allcapsspacing{\MakeTextUppercase{#1}}}
-\newcommand{\smallcaps}[1]{\smallcapsspacing{\MakeTextLowercase{#1}}}
-
-\newcommand{\textls}[2][5]{%
-    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
-  }
-  
-  \providecommand\newthought[1]{%
-   \tuftebreak
-   \noindent\textsc{#1}%
-}
-\renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
- \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
- \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
- \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
- \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
-
 % ---
 % Language Settings
 % ---
 
 % Needs to be loaded locally and after the fontspec package
-
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=british]{english}
 \setotherlanguages{french,portuges,italian}
 
 \usepackage{csquotes}
 
-
 % ---
 % Graphic settings
 % ---
-
 \usepackage{graphicx,xcolor,epstopdf}
 \usepackage{color}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
@@ -97,7 +52,6 @@
 \definecolor{canary}{HTML}{FCF0AD}
 
 \definecolor{gindigo}{HTML}{2196F3}
-
 
 %Blue
 \definecolor{gblue500}{HTML}{2196F3}
@@ -170,6 +124,7 @@
 % Postit color
 \definecolor{postitcolor}{HTML}{FCF0AD}
 
+% Todo: Review the need of graph the packages below
 \usepackage{pdfrender}
 \usepackage[beamer]{hf-tikz}
 \usepackage{tikz}
@@ -185,7 +140,6 @@
 % ---
 % Other packages
 % ---
-
 % Separates counting from actual presentation from appendix
 \usepackage{appendixnumberbeamer}
 
@@ -198,12 +152,14 @@
 \usepackage{multicol}
 \setlength{\columnseprule}{0.4pt}
 
-% Bla bla bla generator
+% Dummy text generator
 \usepackage{blindtext}
 
 % ---
 % Water mark 
 % ---
+
+% Todo: review the need of the commented code below
 
 % different for odd and even pages
 %\usepackage{draftwatermark}
@@ -243,35 +199,29 @@
 \usepackage{hyperref}% backref linktocpage pagebackref
 
 \hypersetup{
-% Uncomment the line below to remove all links (to references, figures, tables, etc)
-%draft, 
 colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,
 % Uncomment the line below if you want to have black links (e.g. for printing black and white)
-colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV, 
-%
-% PDF file meta-information
-%
-pdftitle={},
+colorlinks=false, linktocpage=false, pdfborder={0 0 0}, 
+pdfstartpage=1, pdfstartview=FitV, 
+pdftitle={Presentation},
 pdfauthor={Humberto STEIN SHIROMOTO},
 pdfsubject={},
 pdfkeywords={},
-pdfcreator={Sublime},
+pdfcreator={Sublime Text 3},
 pdfproducer={}
 }
 
+% Todo: Review this beamer color commands... maybe move to other parts?
 \setbeamercolor{bibliography entry author}{fg=ggreentext}
 \setbeamercolor{bibliography entry title}{fg=black}
 \setbeamercolor{bibliography entry location}{fg=gredtext}
-\setbeamercolor{bibliography entry Publisher
-}{fg=gredtext}
-\setbeamercolor{bibliography entry note
-}{fg=black}
+\setbeamercolor{bibliography entry Publisher}{fg=gredtext}
+\setbeamercolor{bibliography entry note}{fg=black}
 \setbeamercolor{bibliography item}{fg=gblue700}
 
 % ---
 % Itemize and enumerate style
 % ---
-
 \setbeamertemplate{itemize item}[square]
 \setbeamercolor{itemize item}{fg=gblue700}
 
@@ -290,9 +240,8 @@ pdfproducer={}
 \setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
 
 % ---
-% Frametitle %
+% Frametitle
 % ---
-
 % Removes shadow from frametitle
 \setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
 
@@ -301,6 +250,8 @@ pdfproducer={}
 % ---
 % Headline
 % ---
+% Todo: review the need of the commented code below
+
 %\setbeamerfont{headline}{series=\bfseries}
 \setbeamercolor{section in head/foot}{fg=white, bg=black}
 % \setbeamercolor{upper separation line head}{bg=white}
@@ -330,10 +281,9 @@ pdfproducer={}
 % \makeatother
 
 
-%%%%%%%%%%%%
-% Footline %
-%%%%%%%%%%%%
-%\setbeamertemplate{footline}[frame number]
+% ---
+% Footline
+% ---
 \setbeamercolor{footline}{fg=white,bg=black}
 
 \makeatletter
@@ -361,13 +311,9 @@ pdfproducer={}
 }
 \makeatother
 
-
-\setbeamertemplate{footline}[my footline]
-
-%%%%%%%%%%%%%%%%%%%%%
-% SECTION-TITLEPAGE %
-%%%%%%%%%%%%%%%%%%%%%
-
+% ---
+% Section titlepage
+% ---
 \AtBeginSection[]{%
     {
     \setbeamercolor{upper separation line head}{bg=gblue700}
@@ -389,9 +335,9 @@ pdfproducer={}
     \addtocounter{framenumber}{-1}
 }
 
-%%%%%%%%%%%%%%%%%%%%%
-% TABLE OF CONTENTS %
-%%%%%%%%%%%%%%%%%%%%%
+% ---
+% Table of contents
+% ---
 
 %Changing numbering in TOC
 %\setbeamertemplate{sections/subsections in toc}[square]

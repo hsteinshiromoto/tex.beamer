@@ -49,15 +49,12 @@
 % Loads configuration file
 
 \input{cfg/settings.tex}
-% \input{cfg/fonts.tex}
 \input{cfg/commands.tex}
 \input{cfg/environments.tex}
 
-%\usepackage{fixmath}
-
-%%%%%%%%%%%%%%%%%%%%
+% ---
 % BIBLATEX PACKAGE %
-%%%%%%%%%%%%%%%%%%%%
+% ---
 
 % To be loaded locally after the language package
 
@@ -83,9 +80,9 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 \graphicspath{ {../imgs/} }
 \newcommand{\svginput}[1]{\input{../imgs/#1}}
 
-%%%%%%%%%%%%%
-% TITLEPAGE %
-%%%%%%%%%%%%%
+% ---
+% Titlepage
+% ---
 
 % Needs to be loaded locally
 
@@ -145,12 +142,14 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 \end{minipage}
 }
 
+
 \begin{document}
 
 \tikzstyle{every picture}+=[remember picture]
 
 % By default all math in TikZ nodes are set in inline mode. Change this to
 % displaystyle so that we don't get small fractions.
+
 \everymath{\displaystyle}
 	
 	{

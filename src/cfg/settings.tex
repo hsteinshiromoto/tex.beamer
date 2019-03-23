@@ -28,14 +28,6 @@
         BoldItalicFont = *-bolditalic]
 				{texgyreheros}
 
-	\setsansfont[
-				Extension 	   = .otf,
-				UprightFont	   = *-regular,
-				BoldFont	   = *-bold,
-				ItalicFont	   = *-italic,
-				BoldItalicFont = *-bolditalic]
-				{texgyreheros}
-
 % ---	
 % Definition of Commands: \newhtought, \allcaps, \smallcaps and \textsc
 % ---
@@ -330,10 +322,9 @@ pdfproducer={}
 % \makeatother
 
 
-%%%%%%%%%%%%
-% Footline %
-%%%%%%%%%%%%
-%\setbeamertemplate{footline}[frame number]
+% ---
+% Footline
+% ---
 \setbeamercolor{footline}{fg=white,bg=black}
 
 \makeatletter
@@ -360,9 +351,6 @@ pdfproducer={}
   \fi
 }
 \makeatother
-
-
-\setbeamertemplate{footline}[my footline]
 
 %%%%%%%%%%%%%%%%%%%%%
 % SECTION-TITLEPAGE %

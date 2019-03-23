@@ -17,7 +17,8 @@
 \usepackage{mathspec}
 		
 \usepackage{fontspec}
-	\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},Scale=MatchUppercase,Color=textcolor}
+	\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},
+                       Scale=MatchUppercase,Color=textcolor}
 	
 	\setsansfont[
         Extension      = .otf,
@@ -32,18 +33,15 @@
 % ---
 
 % Needs to be loaded locally and after the fontspec package
-
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=british]{english}
 \setotherlanguages{french,portuges,italian}
 
 \usepackage{csquotes}
 
-
 % ---
 % Graphic settings
 % ---
-
 \usepackage{graphicx,xcolor,epstopdf}
 \usepackage{color}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
@@ -125,6 +123,7 @@
 % Postit color
 \definecolor{postitcolor}{HTML}{FCF0AD}
 
+% Todo: Review the need of graph the packages below
 \usepackage{pdfrender}
 \usepackage[beamer]{hf-tikz}
 \usepackage{tikz}
@@ -140,7 +139,6 @@
 % ---
 % Other packages
 % ---
-
 % Separates counting from actual presentation from appendix
 \usepackage{appendixnumberbeamer}
 
@@ -153,7 +151,7 @@
 \usepackage{multicol}
 \setlength{\columnseprule}{0.4pt}
 
-% Bla bla bla generator
+% Dummy text generator
 \usepackage{blindtext}
 
 % ---
@@ -198,35 +196,28 @@
 \usepackage{hyperref}% backref linktocpage pagebackref
 
 \hypersetup{
-% Uncomment the line below to remove all links (to references, figures, tables, etc)
-%draft, 
 colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,
 % Uncomment the line below if you want to have black links (e.g. for printing black and white)
 colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV, 
-%
-% PDF file meta-information
-%
-pdftitle={},
+pdftitle={Presentation},
 pdfauthor={Humberto STEIN SHIROMOTO},
 pdfsubject={},
 pdfkeywords={},
-pdfcreator={Sublime},
+pdfcreator={Sublime Text 3},
 pdfproducer={}
 }
 
+% Todo: Review this beamer color commands... maybe move to other parts?
 \setbeamercolor{bibliography entry author}{fg=ggreentext}
 \setbeamercolor{bibliography entry title}{fg=black}
 \setbeamercolor{bibliography entry location}{fg=gredtext}
-\setbeamercolor{bibliography entry Publisher
-}{fg=gredtext}
-\setbeamercolor{bibliography entry note
-}{fg=black}
+\setbeamercolor{bibliography entry Publisher}{fg=gredtext}
+\setbeamercolor{bibliography entry note}{fg=black}
 \setbeamercolor{bibliography item}{fg=gblue700}
 
 % ---
 % Itemize and enumerate style
 % ---
-
 \setbeamertemplate{itemize item}[square]
 \setbeamercolor{itemize item}{fg=gblue700}
 
@@ -245,9 +236,8 @@ pdfproducer={}
 \setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
 
 % ---
-% Frametitle %
+% Frametitle
 % ---
-
 % Removes shadow from frametitle
 \setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
 

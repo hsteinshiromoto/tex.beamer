@@ -57,25 +57,31 @@
 % ---
 
 % To be loaded locally after the language package
+\usepackage[natbib=true,%
+backend=biber,%
+style=alphabetic,%
+sorting=anyvt,%
+firstinits=true,%
+doi=true,%
+isbn=false,%
+url=false,%
+backref=true,%
+texencoding=utf8,%
+bibencoding=utf8]{biblatex}
+\IfFileExists{./Library.bib}{
 
-\usepackage[natbib=true,backend=biber,style=alphabetic,sorting=anyvt,
-firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bibencoding=utf8]{biblatex}
-
-\IfFileExists{./../Library.bib}{
-
- \addbibresource{./../../../Library}
+ \addbibresource{./Library}
  
 }{
 
-  %Must be used with biber as backend
-  %Execute with "biber SeparableMetrics"
-  \addbibresource[location=remote]{https://www.dropbox.com/s/r00o9lw76cksxvj/Library.bib?dl=1} 
+  \addbibresource[location=remote]{https://gitlab.com/hsteinshiromoto/bibliography/raw/master/Library.bib}  
+
 }
 
 
-
-
-
+% ---
+% Graph settings
+% ---
 
 \graphicspath{ {../imgs/} }
 \newcommand{\svginput}[1]{\input{../imgs/#1}}

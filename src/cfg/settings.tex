@@ -12,7 +12,9 @@
 % Typeface Settings
 % ---
 \usefonttheme{professionalfonts} %Necessary to use with Euler
-\usepackage[small,euler-digits,euler-hat-accent]{eulervm} % Load BEFORE mathspec AND fontspec packages
+
+ % Load BEFORE mathspec AND fontspec packages
+\usepackage[small,euler-digits,euler-hat-accent]{eulervm}
 
 \usepackage{mathspec}
 		
@@ -50,7 +52,6 @@
 \definecolor{canary}{HTML}{FCF0AD}
 
 \definecolor{gindigo}{HTML}{2196F3}
-
 
 %Blue
 \definecolor{gblue500}{HTML}{2196F3}
@@ -158,6 +159,8 @@
 % Water mark 
 % ---
 
+% Todo: review the need of the commented code below
+
 % different for odd and even pages
 %\usepackage{draftwatermark}
 %
@@ -198,7 +201,8 @@
 \hypersetup{
 colorlinks=true, linktocpage=true, pdfstartpage=1, pdfstartview=FitV,
 % Uncomment the line below if you want to have black links (e.g. for printing black and white)
-colorlinks=false, linktocpage=false, pdfborder={0 0 0}, pdfstartpage=1, pdfstartview=FitV, 
+colorlinks=false, linktocpage=false, pdfborder={0 0 0}, 
+pdfstartpage=1, pdfstartview=FitV, 
 pdftitle={Presentation},
 pdfauthor={Humberto STEIN SHIROMOTO},
 pdfsubject={},
@@ -246,6 +250,8 @@ pdfproducer={}
 % ---
 % Headline
 % ---
+% Todo: review the need of the commented code below
+
 %\setbeamerfont{headline}{series=\bfseries}
 \setbeamercolor{section in head/foot}{fg=white, bg=black}
 % \setbeamercolor{upper separation line head}{bg=white}
@@ -305,10 +311,9 @@ pdfproducer={}
 }
 \makeatother
 
-%%%%%%%%%%%%%%%%%%%%%
-% SECTION-TITLEPAGE %
-%%%%%%%%%%%%%%%%%%%%%
-
+% ---
+% Section titlepage
+% ---
 \AtBeginSection[]{%
     {
     \setbeamercolor{upper separation line head}{bg=gblue700}
@@ -330,9 +335,9 @@ pdfproducer={}
     \addtocounter{framenumber}{-1}
 }
 
-%%%%%%%%%%%%%%%%%%%%%
-% TABLE OF CONTENTS %
-%%%%%%%%%%%%%%%%%%%%%
+% ---
+% Table of contents
+% ---
 
 %Changing numbering in TOC
 %\setbeamertemplate{sections/subsections in toc}[square]

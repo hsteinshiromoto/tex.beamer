@@ -42,6 +42,32 @@
 \usepackage{csquotes}
 
 % ---
+% BIBLATEX PACKAGE %
+% ---
+
+% To be loaded locally after the language package
+\usepackage[natbib=true,%
+backend=biber,%
+style=alphabetic,%
+sorting=anyvt,%
+firstinits=true,%
+doi=true,%
+isbn=false,%
+url=false,%
+backref=true,%
+texencoding=utf8,%
+bibencoding=utf8]{biblatex}
+\IfFileExists{./Library.bib}{
+
+ \addbibresource{./Library}
+ 
+}{
+
+  \addbibresource[location=remote]{https://gitlab.com/hsteinshiromoto/bibliography/raw/master/Library.bib}  
+
+}
+
+% ---
 % Graphic settings
 % ---
 \usepackage{graphicx,xcolor,epstopdf}

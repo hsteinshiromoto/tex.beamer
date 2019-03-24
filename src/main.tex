@@ -35,6 +35,10 @@
 \tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor#1};}}
  \makeatother
 
+
+% ---
+% Conditional variables
+% ---
 \usepackage{etoolbox}
 
 \newtoggle{presentation}
@@ -44,9 +48,18 @@
 \newtoggle{euler}
 \toggletrue{euler}
 %\togglefalse{presentation}
+
+\newif\ifsectitlepage
+\ifdefined\sectitlepage
+  \sectitlepagetrue % or
+\else
+ \sectitlepagefalse
+\fi
  
 
-% Loads configuration file
+% ---
+% Load settings from other files
+% ---
 
 \input{cfg/settings.tex}
 \input{cfg/commands.tex}

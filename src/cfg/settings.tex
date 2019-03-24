@@ -317,27 +317,28 @@ pdfproducer={}
 % ---
 
 % Todo: Add a \if condition
-
-% \AtBeginSection[]{%
-%     {
-%     \setbeamercolor{upper separation line head}{bg=gblue700}
-%     \begin{frame}
-%     \begin{tikzpicture}[remember picture,overlay]
-%     \fill[gblue700]
-%         ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.north east);
-%     \node[anchor=center]
-%         at ([yshift=10pt,xshift=0pt]current page.center) 
-%         {\parbox[t]{\textwidth}{\centering%
-%             \usebeamerfont{author}\textcolor{white}{%
-%                     \textpdfrender{
-%                         TextRenderingMode=FillStroke,
-%                         FillColor=white,
-%                         LineWidth=.1ex,
-%                     }{\insertsection}}}};
-%     \end{tikzpicture}
-%     \end{frame}}
-%     \addtocounter{framenumber}{-1}
-% }
+\ifsectitlepage
+  \AtBeginSection[]{%
+      {
+      \setbeamercolor{upper separation line head}{bg=gblue700}
+      \begin{frame}
+      \begin{tikzpicture}[remember picture,overlay]
+      \fill[gblue700]
+          ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.north east);
+      \node[anchor=center]
+          at ([yshift=10pt,xshift=0pt]current page.center) 
+          {\parbox[t]{\textwidth}{\centering%
+              \usebeamerfont{author}\textcolor{white}{%
+                      \textpdfrender{
+                          TextRenderingMode=FillStroke,
+                          FillColor=white,
+                          LineWidth=.1ex,
+                      }{\insertsection}}}};
+      \end{tikzpicture}
+      \end{frame}}
+      \addtocounter{framenumber}{-1}
+  }
+\fi
 
 % ---
 % Table of contents

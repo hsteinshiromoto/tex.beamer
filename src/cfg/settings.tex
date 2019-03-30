@@ -370,16 +370,16 @@ pdfproducer={}
 % ---
 
 %Changing numbering in TOC
-%\setbeamertemplate{sections/subsections in toc}[square]
-%\setbeamertemplate{section in toc}{\inserttocsection}
-%\setbeamerfont{section in toc}{series=\bfseries}
-%
-%% TOC must be loaded before \begin{document}
-%\AtBeginSection[]{
-%	\begin{frame}<beamer>
-%		%\frametitle{Overview}
-%		\tableofcontents[currentsection,hideallsubsections,subsubsectionstyle=hide]
-%	\end{frame}
-%	\addtocounter{framenumber}{-1} 
-%}
+\setbeamertemplate{sections/subsections in toc}[square]
+% \setbeamertemplate{section in toc}{\inserttocsection}
+\setbeamerfont{section in toc}{series=\bfseries}
+
+% TOC before each section
+% \AtBeginSection[]{
+% 	\begin{frame}<beamer>
+% 		%\frametitle{Overview}
+% 		\tableofcontents[currentsection,hideallsubsections,subsubsectionstyle=hide]
+% 	\end{frame}
+% 	\addtocounter{framenumber}{-1} 
+% }
 

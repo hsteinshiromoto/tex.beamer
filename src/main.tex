@@ -83,7 +83,7 @@
 \setbeamertemplate{title page}{%
 \begin{tikzpicture}[remember picture,overlay]
 \fill[gblue700]
-  ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.north east);
+  ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.east);
 \node[anchor=east] 
   at ([yshift=85pt]current page.south east) (author)
   {\parbox[t]{\paperwidth}{\centering%
@@ -104,7 +104,7 @@
 \node[anchor=center]
   at ([yshift=50pt,xshift=0pt]current page.center) (title)
   {\parbox[t]{\textwidth}{\centering%
- \usebeamerfont{author}\textcolor{white}{%
+ \usebeamerfont{author}\textcolor{black}{%
     \textpdfrender{
     TextRenderingMode=FillStroke,
     FillColor=white,
@@ -153,16 +153,16 @@
 %        \pgfusepath{fill,stroke}%
 %    \end{pgfpicture}%
 %    }%
-		
 	
-	
-	\frame{
-		\maketitle	
-	}	}
+		\frame{
+			\maketitle	
+		}	
 
-	\frame[t]{
-	\frametitle{Presentation Contents}
-		\tableofcontents
+		\frame[t]{
+		\frametitle{Presentation Contents}
+			\tableofcontents	
+		}
+
 	}
 	
 	\section[Text, items, equations, and figures]{Tests with text, items, equations, and figures}	

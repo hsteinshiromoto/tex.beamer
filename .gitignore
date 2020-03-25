@@ -1,6 +1,9 @@
 
 # Created by https://www.gitignore.io/api/latex,sublimetext
 
+src/main.pdf
+*.DS_Store
+
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux

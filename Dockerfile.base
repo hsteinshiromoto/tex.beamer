@@ -27,8 +27,6 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # ---
 # Set up the necessary Debian packages
 # ---
-COPY debian-requirements.txt /usr/local/debian-requirements.txt
-
 RUN apt-get update && \
     apt-get install -y software-properties-common \
     biber \

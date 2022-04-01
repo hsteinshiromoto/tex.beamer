@@ -1,8 +1,22 @@
 
 # Created by https://www.gitignore.io/api/latex,sublimetext
 
-src/main.pdf
-*.DS_Store
+
+## File Extensions ##
+
+.env
+*.directory
+.DS_Store
+*.pyc
+
+## Folders ##
+
+files/
+.idea/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
@@ -17,6 +31,7 @@ src/main.pdf
 *.fot
 *.cb
 *.cb2
+.*.lb
 
 ## Intermediate documents:
 *.dvi
@@ -26,7 +41,6 @@ src/main.pdf
 # *.ps
 # *.eps
 # *.pdf
-# *.ttf
 
 ## Generated if empty string is given at "Please type another file name for output:"
 .pdf
@@ -46,7 +60,10 @@ src/main.pdf
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
-*Notes.bib
+
+## Build tool directories for auxiliary files
+# latexrun
+latex.out/
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
@@ -118,6 +135,14 @@ acs-*.bib
 *.gaux
 *.gtex
 
+# htlatex
+*.4ct
+*.4tc
+*.idv
+*.lg
+*.trc
+*.xref
+
 # hyperref
 *.brf
 
@@ -153,7 +178,9 @@ _minted*
 *.mw
 
 # nomencl
+*.nlg
 *.nlo
+*.nls
 
 # pax
 *.pax
@@ -196,6 +223,9 @@ pythontex-files-*/
 # easy-todo
 *.lod
 
+# xmpincl
+*.xmpi
+
 # xindy
 *.xdy
 
@@ -217,6 +247,9 @@ TSWLatexianTemp*
 # Texpad
 .texpadtmp
 
+# LyX
+*.lyx~
+
 # Kile
 *.backup
 
@@ -224,25 +257,33 @@ TSWLatexianTemp*
 *~[0-9]*
 
 # auto folder when using emacs and auctex
-/auto/*
+./auto/*
+*.el
 
 # expex forward references with \gathertags
 *-tags.tex
 
+# standalone packages
+*.sta
+
+### LaTeX Patch ###
+# glossaries
+*.glstex
+
 ### SublimeText ###
-# cache files for sublime text
+# Cache files for Sublime Text
 *.tmlanguage.cache
 *.tmPreferences.cache
 *.stTheme.cache
 
-# workspace files are user-specific
+# Workspace files are user-specific
 *.sublime-workspace
 
-# project files should be checked into the repository, unless a significant
-# proportion of contributors will probably not be using SublimeText
+# Project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using Sublime Text
 # *.sublime-project
 
-# sftp configuration file
+# SFTP configuration file
 sftp-config.json
 
 # Package control specific files

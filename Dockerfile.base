@@ -47,7 +47,7 @@ RUN apt-get update && \
     texlive-xetex \
     vim \
     wget \
-    # Pyenv necessary libraries
+    # Pyenv necessary libraries: https://stackoverflow.com/questions/67807596/pyenv-install-3-x-build-failed-ubuntu-20-04-using-python-build-20180424
     libssl-dev \
     zlib1g-dev \
     libbz2-dev \

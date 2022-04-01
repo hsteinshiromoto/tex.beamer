@@ -27,6 +27,8 @@ ENV HOME=/home/$PROJECT_NAME
 RUN mkdir -p $HOME
 WORKDIR $HOME
 
+COPY . $HOME
+
 # ---
 # Install pyenv
 #

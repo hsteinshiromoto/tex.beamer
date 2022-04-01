@@ -72,16 +72,16 @@ app_image:
 ## Build all Docker images
 image: base_image app_image
 
-all: ${BINS}
+# all: ${BINS}
 
-%: %.tex
-	@echo "Compiling $<"
-	@echo "Outputting to $@.pdf"
-	$(eval OUTFILE=$@)
-	${COMPILER} ${TEXVARIANT} -jobname=${OUTFILE} $< 
+# %: %.tex
+# 	@echo "Compiling $<"
+# 	@echo "Outputting to $@.pdf"
+# 	$(eval OUTFILE=$@)
+# 	${COMPILER} ${TEXVARIANT} -jobname=${OUTFILE} $< 
 
-%.tex:
-	@echo "Creating object $@"
+# %.tex:
+# 	@echo "Creating object $@"
 
 # References:
 # [1] https://opensource.com/article/18/8/what-how-makefile

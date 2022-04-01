@@ -29,8 +29,24 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 # ---
 COPY debian-requirements.txt /usr/local/debian-requirements.txt
 
-RUN apt-get update && DEBIAN_PACKAGES=$(egrep -v "^\s*(#|$)" /usr/local/debian-requirements.txt) && \
-    apt-get install -y software-properties-common $DEBIAN_PACKAGES && \
+RUN apt-get update && \
+    apt-get install -y software-properties-common \
+    biber \
+    build-essential \
+    curl \
+    git \
+    gnupg2 \
+    latexdiff \
+    latexmk \
+    make \
+    pandoc \
+    sudo \
+    texlive \
+    texlive-bibtex-extra \
+    texlive-fonts-extra \
+    texlive-xetex \
+    vim \
+    wget && \
     apt-get clean && \
     apt-get --purge remove -y .\*-doc$ && \
     apt-get clean -y

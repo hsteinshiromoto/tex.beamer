@@ -5,3 +5,4 @@ Dockerfile.base
 LICENSE
 run.sh
 *.code-workspace
+.devcontainer/*

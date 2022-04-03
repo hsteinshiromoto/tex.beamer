@@ -68,9 +68,9 @@
 \graphicspath{ {../imgs/} }
 \newcommand{\svginput}[1]{\input{../imgs/#1}}
 
-% ---
-% Titlepage
-% ---
+%%%%%%%%%%%%%
+% TITLEPAGE %
+%%%%%%%%%%%%%
 
 % Needs to be loaded locally
 
@@ -83,7 +83,7 @@
 \setbeamertemplate{title page}{%
 \begin{tikzpicture}[remember picture,overlay]
 \fill[gblue700]
-  ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.east);
+  ([yshift=0pt]current page.west) rectangle ([yshift=-\headheight] current page.north east);
 \node[anchor=east] 
   at ([yshift=85pt]current page.south east) (author)
   {\parbox[t]{\paperwidth}{\centering%
@@ -104,7 +104,7 @@
 \node[anchor=center]
   at ([yshift=50pt,xshift=0pt]current page.center) (title)
   {\parbox[t]{\textwidth}{\centering%
- \usebeamerfont{author}\textcolor{black}{%
+ \usebeamerfont{author}\textcolor{white}{%
     \textpdfrender{
     TextRenderingMode=FillStroke,
     FillColor=white,

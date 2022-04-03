@@ -82,9 +82,9 @@
 \graphicspath{ {imgs/} }
 \newcommand{\svginput}[1]{\input{imgs/#1}}
 
-%%%%%%%%%%%%%
-% TITLEPAGE %
-%%%%%%%%%%%%%
+% ---
+% Titlepage
+% ---
 
 % Needs to be loaded locally
 
@@ -233,37 +233,52 @@
 		\frametitle{Without shadows}
 		
 		\begin{tcolorbox}[title=A test]
-This is an equation
-\begin{equation*}
-	\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx
-\end{equation*}
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
+			This is an equation
+			\begin{equation*}
+				\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx
+			\end{equation*}
+		\end{tcolorbox}\par\bigskip
+		\begin{tcolorbox}
+			This is a tcolorbox.
+		\end{tcolorbox}\par\bigskip
 }
 	
 	\subsection{Midday Shadows}
 	
-			\frame[c]{
+	\frame[c]{
 	\frametitle{Small boxes with midday, and lifted shadows}
-	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow,hbox]
-Test.
-\end{tcolorbox}
-\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop lifted shadow,hbox]
-Test.
-\end{tcolorbox}
-	
+
+		\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow,hbox]
+			Test.
+		\end{tcolorbox}
+		\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop lifted shadow,hbox]
+			Test.
+		\end{tcolorbox}
 	}
 	
 	\section{Theorem-like environments}
 	\subsection{Theorem environments}
 	\frame[c]{	
-		\frametitle{ToDo}
-	
+		\frametitle{A Title}
+		\begin{tcolorbox}[title=Theorem]
+			Test
+		\end{tcolorbox}
 	}
+
 	\subsection{Definition environments}
+	\frame[c]{	
+		\frametitle{A Title}
+		\begin{tcolorbox}[title=Definiton]
+			Test
+		\end{tcolorbox}
+	}
 	
 	\subsection{Example environments}
+	\frame[c]{	
+		\frametitle{A Title}
+		\begin{tcolorbox}[title=Example]
+			Test
+		\end{tcolorbox}
+	}
 		
 \end{document}

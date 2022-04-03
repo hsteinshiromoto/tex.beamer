@@ -21,8 +21,54 @@ env:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build_docker_image:
+  build_base_image:
     name: Build docker image and push
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get docker version
+        id: docker_version
+        run: | 
+          echo "::set-output name=version::$(git ls-files -s Dockerfile.base | awk '{print $2}' | cut -c1-16)"
+
+      - name: Log into registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Check if image exists
+        id: image_exists
+        run: |
+          response=$(docker manifest inspect ghcr.io/${{ github.repository }}/$IMAGE_NAME.base:${{ steps.docker_version.outputs.version }} > /dev/null ; echo $?)
+          echo ::set-output name=image_exists::$(echo ${response})
+
+      - name: Build docker image if it is not on registry
+        if: ${{ steps.image_exists.outputs.image_exists == 1 }}
+        run: make base_image
+
+      - name: Push image to Github Registry
+        if: ${{ steps.image_exists.outputs.image_exists == 1 }}
+        run: |
+              IMAGE_ID=ghcr.io/${{ github.repository }}/$IMAGE_NAME.base
+
+              # Change all uppercase to lowercase
+              IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+
+              # Strip git ref prefix from version
+              VERSION=$(git ls-files -s Dockerfile | awk '{print $2}' | cut -c1-16)
+
+              echo IMAGE_ID=$IMAGE_ID
+              echo VERSION=$VERSION
+              echo IMAGE_NAME=$IMAGE_NAME
+
+              docker tag ${{ github.actor }}/$IMAGE_NAME:$VERSION $IMAGE_ID:$VERSION
+              docker push $IMAGE_ID:$VERSION
+
+              docker tag $IMAGE_ID:$VERSION $IMAGE_ID:latest
+              docker push $IMAGE_ID:latest
+
+  build_app_image:
+    needs: [build_base_image]
     runs-on: ubuntu-latest
 
     steps:
@@ -41,7 +87,7 @@ jobs:
 
       - name: Build docker image if it is not on registry
         if: ${{ steps.image_exists.outputs.image_exists == 1 }}
-        run: make image
+        run: make app_image
 
       - name: Login to Dockerhub
         if: ${{ steps.image_exists.outputs.image_exists == 1 }}
@@ -70,3 +116,19 @@ jobs:
 
           docker tag $IMAGE_ID:$VERSION $IMAGE_ID:latest
           docker push $IMAGE_ID:latest
+
+  compile:
+    name: Compile deck
+    needs: [build_app_image]
+    runs-on: ubuntu-latest
+
+    container:
+      image: hsteinshiromoto/$VERSION:latest
+      
+    steps:
+      - uses: actions/checkout@v2.2.0
+        with:
+          fetch-depth: 0 # This is necessary to get the second latest tag
+      
+      - name: Compile
+        run: make

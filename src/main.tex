@@ -55,11 +55,25 @@
  
 
 % ---
-% Load Settings from other files
+% Load Settings from other files: Different if running on vs code or not
 % ---
-\input{conf/settings.tex}
-\input{conf/commands.tex}
-\input{conf/environments.tex}
+% Print Cover Letter
+\newif\ifdev
+\ifdefined\dev
+	\devtrue % or
+\else
+	\devfalse
+\fi
+
+\ifdev
+	\input{/home/tex.beamer/src/conf/settings.tex}
+	\input{/home/tex.beamer/src/conf/commands.tex}
+	\input{/home/tex.beamer/src/conf/environments.tex}
+\else
+	\input{conf/settings.tex}
+	\input{conf/commands.tex}
+	\input{conf/environments.tex}
+\fi
 
 
 % ---

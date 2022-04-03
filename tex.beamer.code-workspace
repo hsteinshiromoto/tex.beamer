@@ -40,7 +40,8 @@
 					"-file-line-error",
 					"-pdf",
 					"-outdir=%OUTDIR%",
-					"%DOC%"
+					"%DOC%",
+					"-usepretex='\\def\\debug{}'"
 				],
 				"env": {}
 			},

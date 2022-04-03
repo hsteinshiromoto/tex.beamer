@@ -61,7 +61,7 @@ jobs:
               echo VERSION=$VERSION
               echo IMAGE_NAME=$IMAGE_NAME
 
-              docker tag ${{ github.actor }}/$IMAGE_NAME:$VERSION $IMAGE_ID:$VERSION
+              docker tag ${{ github.actor }}/$IMAGE_NAME.base:$VERSION $IMAGE_ID:$VERSION
               docker push $IMAGE_ID:$VERSION
 
               docker tag $IMAGE_ID:$VERSION $IMAGE_ID:latest

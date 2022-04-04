@@ -129,4 +129,6 @@ jobs:
       
     steps:     
       - name: Compile
-        run: make
+        run: |
+          cd /__w/$IMAGE_NAME/$IMAGE_NAME
+          make

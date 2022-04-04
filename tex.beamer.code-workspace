@@ -32,55 +32,21 @@
 		"latex-workshop.latex.tools": [
 
 			{
-				"name": "latexmk",
-				"command": "latexmk",
-				"args": [
-					"-synctex=1",
-					"-interaction=nonstopmode",
-					"-file-line-error",
-					"-pdf",
-					"-outdir=%OUTDIR%",
-					"%DOC%"
-				],
-				"env": {}
-			},
-			{
-				"name": "lualatexmk",
-				"command": "latexmk",
-				"args": [
-					"-synctex=1",
-					"-interaction=nonstopmode",
-					"-file-line-error",
-					"-lualatex",
-					"-outdir=%OUTDIR%",
-					"%DOC%"
-				],
-				"env": {}
-			},
-			{
 				"name": "xelatexmk",
 				"command": "latexmk",
 				"args": [
 					"-synctex=1",
 					"-interaction=nonstopmode",
 					"-file-line-error",
-					"-xelatex",
 					"-outdir=%OUTDIR%",
-					"%DOC%"
+					"-xelatex",
+					"-usepretex=\\def\\rootpath{%OUTDIR%}"
 				],
 				"env": {}
 			},
 			{
-				"name": "latexmk_rconly",
-				"command": "latexmk",
-				"args": [
-					"%DOC%"
-				],
-				"env": {}
-			},
-			{
-				"name": "pdflatex",
-				"command": "pdflatex",
+				"name": "xelatex",
+				"command": "xelatex",
 				"args": [
 					"-synctex=1",
 					"-interaction=nonstopmode",

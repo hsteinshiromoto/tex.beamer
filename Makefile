@@ -43,6 +43,23 @@ endif
 # ---
 # Commands
 # ---
+# References:
+# 	[1] https://tex.stackexchange.com/questions/79193/is-it-possible-to-pass-definitions-to-latex-from-the-command-line
+all: ${BINS}
+
+%: %.tex
+	@echo "Compiling $<"
+	@echo "Outputting to $@.pdf"
+	$(eval OUTFILE=$@)
+	${COMPILER} ${TEXVARIANT} -jobname=${OUTFILE} -usepretex="\\def\\rootpath{${PROJECT_PATH}/src}" $<
+
+%.tex:
+	@echo "Creating object $@"
+
+# References:
+# [1] https://opensource.com/article/18/8/what-how-makefile
+# [2] https://stackoverflow.com/questions/58602758/basic-if-else-statement-in-makefile
+
 ## Build base Docker image
 base_image:
 	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}.base:${BASE_IMAGE_TAG})
@@ -68,24 +85,17 @@ app_image:
 				-t ${DOCKER_IMAGE_TAG} .
 	@echo "Done"
 
-
 ## Build all Docker images
 image: base_image app_image
 
-# all: ${BINS}
+# pull:
+# 	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}:${DOCKER_TAG})
+# 	docker pull ${DOCKER_IMAGE_TAG}
+# 	docker tag ${DOCKER_IMAGE_TAG} ${DOCKER_IMAGE_NAME}:latest
 
-# %: %.tex
-# 	@echo "Compiling $<"
-# 	@echo "Outputting to $@.pdf"
-# 	$(eval OUTFILE=$@)
-# 	${COMPILER} ${TEXVARIANT} -jobname=${OUTFILE} $< 
+compile:
+	cd src && ${COMPILER} ${TEXVARIANT} main
 
-# %.tex:
-# 	@echo "Creating object $@"
-
-# References:
-# [1] https://opensource.com/article/18/8/what-how-makefile
-# [2] https://stackoverflow.com/questions/58602758/basic-if-else-statement-in-makefile
 
 # ---
 # Self Documenting Commands

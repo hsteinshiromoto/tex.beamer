@@ -49,7 +49,7 @@ all: ${BINS}
 	@echo "Compiling $<"
 	@echo "Outputting to $@.pdf"
 	$(eval OUTFILE=$@)
-	${COMPILER} ${TEXVARIANT} -jobname=${OUTFILE} $< 
+	${COMPILER} ${TEXVARIANT} -jobname=${OUTFILE} -usepretex="\\def\\rootpath{${PROJECT_PATH}/src}" $<
 
 %.tex:
 	@echo "Creating object $@"

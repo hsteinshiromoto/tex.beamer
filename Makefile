@@ -43,6 +43,8 @@ endif
 # ---
 # Commands
 # ---
+# References:
+# 	[1] https://tex.stackexchange.com/questions/79193/is-it-possible-to-pass-definitions-to-latex-from-the-command-line
 all: ${BINS}
 
 %: %.tex

@@ -130,5 +130,5 @@ jobs:
     steps:     
       - name: Compile
         run: |
-          cd /__w/tex.beamer/tex.beamer
+          cd /home/tex.beamer
           make

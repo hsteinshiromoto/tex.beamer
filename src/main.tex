@@ -57,30 +57,22 @@
 % ---
 % Load Settings from other files: Different if running on vs code or not
 % ---
-% Print Cover Letter
-\newif\ifdev
+
 \ifdefined\dev
-	\devtrue % or
+	\newcommand{\rootpath}{/workspaces/tex.beamer/src}
 \else
-	\devfalse
+	% \newcommand{\rootpath}{/workspaces/tex.beamer/src}
 \fi
 
-\ifdev
-	\input{conf/settings.tex}
-	\input{conf/commands.tex}
-	\input{conf/environments.tex}
-\else
-	\input{conf/settings.tex}
-	\input{conf/commands.tex}
-	\input{conf/environments.tex}
-\fi
-
+\input{\rootpath/conf/settings.tex}
+\input{\rootpath/conf/commands.tex}
+\input{\rootpath/conf/environments.tex}
 
 % ---
 % Image settings
 % ---
-\graphicspath{ {imgs/} }
-\newcommand{\svginput}[1]{\input{imgs/#1}}
+\graphicspath{ {/workspaces/tex.beamer/src/imgs/} }
+\newcommand{\svginput}[1]{\input{/workspaces/tex.beamer/src/imgs/#1}}
 
 % ---
 % Titlepage

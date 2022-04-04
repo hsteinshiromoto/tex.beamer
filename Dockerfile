@@ -46,22 +46,14 @@ ENV PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 RUN pyenv install $PYTHON_VERSION && pyenv global $PYTHON_VERSION
 
 # ---
-# Copy Container Setup Scripts
-# ---
-
-# COPY poetry.lock /usr/local/poetry.lock
-# COPY pyproject.toml /usr/local/pyproject.toml
-
-# ---
 # Get poetry
 # ---
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ENV PATH="${PATH}:$HOME/.poetry/bin"
 ENV PATH="${PATH}:$HOME/.local/bin"
 
-# RUN poetry config virtualenvs.create false \
-    # && cd /usr/local \
-    # && poetry install --no-interaction --no-ansi
+RUN poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi
 
 ENV PATH="${PATH}:$HOME/.local/bin"
 # Need for Pytest

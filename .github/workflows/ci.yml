@@ -127,10 +127,6 @@ jobs:
     container:
       image: hsteinshiromoto/tex.beamer:latest
       
-    steps:
-      - uses: actions/checkout@v2.2.0
-        with:
-          fetch-depth: 0 # This is necessary to get the second latest tag
-      
+    steps:     
       - name: Compile
         run: make

@@ -57,13 +57,6 @@
 % ---
 % Load Settings from other files: Different if running on vs code or not
 % ---
-
-\ifdefined\dev
-	\newcommand{\rootpath}{/workspaces/tex.beamer/src}
-\else
-	% \newcommand{\rootpath}{/workspaces/tex.beamer/src}
-\fi
-
 \input{\rootpath/conf/settings.tex}
 \input{\rootpath/conf/commands.tex}
 \input{\rootpath/conf/environments.tex}
@@ -71,8 +64,8 @@
 % ---
 % Image settings
 % ---
-\graphicspath{ {/workspaces/tex.beamer/src/imgs/} }
-\newcommand{\svginput}[1]{\input{/workspaces/tex.beamer/src/imgs/#1}}
+\graphicspath{ {\rootpath/imgs/} }
+\newcommand{\svginput}[1]{\input{\rootpath/imgs/#1}}
 
 % ---
 % Titlepage

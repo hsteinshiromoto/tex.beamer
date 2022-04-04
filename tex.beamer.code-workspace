@@ -40,9 +40,7 @@
 					"-file-line-error",
 					"-outdir=%OUTDIR%",
 					"-xelatex",
-					// "%DOC%",
-					// "-usepretex='\\def\\dev{}'"
-					"-usepretex=\\def\\dev{1}"
+					"-usepretex=\\def\\rootpath{%OUTDIR%}"
 				],
 				"env": {}
 			},

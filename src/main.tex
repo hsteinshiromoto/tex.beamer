@@ -1,27 +1,25 @@
 % !TEX encoding = UTF-8 Unicode
 % !TEX TS-program = xelatex
-% !TEX root = main.tex
 
 \documentclass[xetex]{beamer}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ---
 % Beamer settings
+% ---
 
 \mode<presentation>
 {
-  %\usetheme{Frankfurt}
-  \useoutertheme[subsection=false]{smoothbars}
-  \setbeamercovered{transparent}
-  \setbeamertemplate{navigation symbols}{} %remove navigation symbols
-  \setbeamercovered{invisible} %No transparent layers
+	%\usetheme{Frankfurt}
+	\useoutertheme[subsection=false]{smoothbars}
+	\setbeamercovered{transparent}
+	\setbeamertemplate{navigation symbols}{} %remove navigation symbols
+\setbeamercovered{invisible} %No transparent layers
 }
 
-
 \usepackage[many]{tcolorbox}
-%\usepackage{tcolorbox}
 \tcbuselibrary{skins,xparse}
 
-
+% Todo: Figure out these counters
 \newcounter{ct}
 \newcounter{contribution}
 
@@ -35,6 +33,9 @@
 \tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor#1};}}
  \makeatother
 
+% ---
+% Conditional variables
+% ---
 \usepackage{etoolbox}
 
 \newtoggle{presentation}
@@ -44,48 +45,31 @@
 \newtoggle{euler}
 \toggletrue{euler}
 %\togglefalse{presentation}
+
+\newif\ifsectitlepage
+\ifdefined\sectitlepage
+  \sectitlepagetrue % or
+\else
+ \sectitlepagefalse
+\fi
  
 
-% Loads configuration file
+% ---
+% Load Settings from other files: Different if running on vs code or not
+% ---
+\input{\rootpath/conf/settings.tex}
+\input{\rootpath/conf/commands.tex}
+\input{\rootpath/conf/environments.tex}
 
-\input{./cfg/settings.tex}
-\input{./cfg/fonts.tex}
-\input{./cfg/commands.tex}
-\input{./cfg/environments.tex}
+% ---
+% Image settings
+% ---
+\graphicspath{ {\rootpath/imgs/} }
+\newcommand{\svginput}[1]{\input{\rootpath/imgs/#1}}
 
-%\usepackage{fixmath}
-
-%%%%%%%%%%%%%%%%%%%%
-% BIBLATEX PACKAGE %
-%%%%%%%%%%%%%%%%%%%%
-
-% To be loaded locally after the language package
-
-\usepackage[natbib=true,backend=biber,style=alphabetic,sorting=anyvt,
-firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bibencoding=utf8]{biblatex}
-
-\IfFileExists{./../Library.bib}{
-
- \addbibresource{./../../../Library}
- 
-}{
-
-  %Must be used with biber as backend
-  %Execute with "biber SeparableMetrics"
-  \addbibresource[location=remote]{https://www.dropbox.com/s/r00o9lw76cksxvj/Library.bib?dl=1} 
-}
-
-
-
-
-
-
-\graphicspath{ {./imgs/} }
-\newcommand{\svginput}[1]{\input{imgs/#1}}
-
-%%%%%%%%%%%%%
-% TITLEPAGE %
-%%%%%%%%%%%%%
+% ---
+% Titlepage
+% ---
 
 % Needs to be loaded locally
 
@@ -133,17 +117,18 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 
 
 \title[XeLaTeX Template]{My XeLaTeX Template}
-\author[humberto.shiromoto@ieee.org]{Humberto \sc Stein Shiromoto}
+\author[h.stein.shiromoto@gmail.com]{Humberto \sc Stein Shiromoto}
 \institute{The University of Sydney}
 \date[19/05/15]{\today}
 \titlegraphic{
 \begin{minipage}[b]{0.95\linewidth}
 \begin{figure}[htbp!]
 \centering
-\includegraphics[width=2.5cm]{./imgs/Usyd_new_logo}
+\includegraphics[width=2.5cm]{logo}
 \end{figure}
 \end{minipage}
 }
+
 
 \begin{document}
 
@@ -151,6 +136,7 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 
 % By default all math in TikZ nodes are set in inline mode. Change this to
 % displaystyle so that we don't get small fractions.
+
 \everymath{\displaystyle}
 	
 	{
@@ -166,12 +152,17 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 %        \pgfusepath{fill,stroke}%
 %    \end{pgfpicture}%
 %    }%
-		
 	
-	
-	\frame{
-		\maketitle	
-	}	}
+		\frame{
+			\maketitle	
+		}	
+
+		\frame[t]{
+		\frametitle{Presentation Contents}
+			\tableofcontents	
+		}
+
+	}
 	
 	\section[Text, items, equations, and figures]{Tests with text, items, equations, and figures}	
 	\subsection[First subsection]{Text and Equations}	
@@ -185,7 +176,7 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 	\frame[c]{
 		\frametitle{The First Frame: equation}
 		\begin{adjustwidth}{-2em}{-2em}
-		% \blindmathpaper % Gives errors!
+		$$\oint_{i\in \mathbb{Z}} x_i$$
 		\end{adjustwidth}
 	}
 
@@ -215,10 +206,10 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 	\frame[c]{
 		\frametitle{The Second Frame: a figure}
 		\begin{adjustwidth}{-2em}{-2em}
-		\begin{figure}[htpb!]
-			\centering
-			\scalebox{0.75}{\input{./imgs/set_evolution.eps_tex}}
-		\end{figure}
+		% \begin{figure}[htpb!]
+		% 	\centering
+		% 	\scalebox{0.75}{\input{../imgs/set_evolution.eps_tex}}
+		% \end{figure}
 		\end{adjustwidth}
 		}
 	\section{Tests with boxes}
@@ -227,114 +218,52 @@ firstinits=true,doi=false,isbn=false,url=false,backref=true,texencoding=utf8,bib
 		\frametitle{Without shadows}
 		
 		\begin{tcolorbox}[title=A test]
-This is an equation
-\begin{equation*}
-	\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx
-\end{equation*}
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
+			This is an equation
+			\begin{equation*}
+				\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx
+			\end{equation*}
+		\end{tcolorbox}\par\bigskip
+		\begin{tcolorbox}
+			This is a tcolorbox.
+		\end{tcolorbox}\par\bigskip
 }
-
-	\subsection{Lifted shadows}
-	
-	\frame[c]{
-	\frametitle{Lifted shadows}
-				\begin{tcolorbox}[drop lifted shadow]
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}[title=Another shadow,
-drop lifted shadow]
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}[drop lifted shadow]
-\begin{equation*}
-% Todo: check why \dot{x} doesn't work
-	\dfrac{dx}{dt}=f(x)
-\end{equation*}
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}[code={\pgfkeysalsofrom\redblock},title=A test,drop lifted shadow]
-Test.
-\end{tcolorbox}		
-	}
 	
 	\subsection{Midday Shadows}
 	
 	\frame[c]{
-		\frametitle{Midday shadows}
-		
-		\begin{tcolorbox}[drop fuzzy midday shadow,
-enhanced,colback=red!5!white,colframe=gred900]
-This is a tcolorbox.
-\end{tcolorbox}\par\bigskip
-\begin{tcolorbox}[title=Another shadow,drop fuzzy midday shadow,
-enhanced,colback=red!5!white,colframe=gred900]
-This is a tcolorbox.
-\end{tcolorbox}
-}
-
-% \frame[t]{
-% 	% Requires definition of \normal and \light fonts
-% 	\frametitle{Variations on the title: available if \texttt{normal} and \texttt{light} defined}
-% 	\begin{tcolorbox}[title=Another shadow,
-% drop lifted shadow]
-% This is a tcolorbox.
-% \end{tcolorbox}\par\bigskip
-% \begin{tcolorbox}[fonttitle=\normal,title=Another shadow,
-% drop lifted shadow]
-% This is a tcolorbox.
-% \end{tcolorbox}\par\bigskip
-% \begin{tcolorbox}[fonttitle=\light,title=Another shadow,
-% drop lifted shadow]
-% This is a tcolorbox.
-% \end{tcolorbox}
-% }
-
-			\frame[c]{
 	\frametitle{Small boxes with midday, and lifted shadows}
-	\begin{minipage}[c]{0.30\linewidth}
-	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop fuzzy midday shadow,hbox]
-Test.
-\end{tcolorbox}
-\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop fuzzy midday shadow,hbox]
-Test.
-\end{tcolorbox}
-	\end{minipage}
-	\begin{minipage}[c]{0.30\linewidth}
-	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow,hbox]
-Test.
-\end{tcolorbox}
-\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop lifted shadow,hbox]
-Test.
-\end{tcolorbox}
-	\end{minipage}
-	\begin{minipage}[c]{0.30\linewidth}
-	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop fuzzy shadow south,hbox]
-Test.
-\end{tcolorbox}
-\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop fuzzy shadow south,hbox]
-Test.
-\end{tcolorbox}
-	\end{minipage}
-	
-	\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow]
-	\begin{varwidth}{\textwidth}
-	The text
-	
-       $\int_{X(t,\mathbf{Z})}\rho\,dx-\int_\mathbf{Z}=\int_0^t\int_{X(s,\mathbf{Z})}\nabla(\rho f)(x)\,dx$
-       \end{varwidth}
-       \end{tcolorbox}
+
+		\begin{tcolorbox}[code={\pgfkeysalsofrom\postitblock},drop lifted shadow,hbox]
+			Test.
+		\end{tcolorbox}
+		\begin{tcolorbox}[code={\pgfkeysalsofrom\whiteblock},drop lifted shadow,hbox]
+			Test.
+		\end{tcolorbox}
 	}
 	
 	\section{Theorem-like environments}
 	\subsection{Theorem environments}
 	\frame[c]{	
-		\frametitle{ToDo}
-	
+		\frametitle{A Title}
+		\begin{tcolorbox}[title=Theorem]
+			Test
+		\end{tcolorbox}
 	}
+
 	\subsection{Definition environments}
+	\frame[c]{	
+		\frametitle{A Title}
+		\begin{tcolorbox}[title=Definiton]
+			Test
+		\end{tcolorbox}
+	}
 	
 	\subsection{Example environments}
+	\frame[c]{	
+		\frametitle{A Title}
+		\begin{tcolorbox}[title=Example]
+			Test
+		\end{tcolorbox}
+	}
 		
 \end{document}

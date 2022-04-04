@@ -1,0 +1,105 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		// "latex-workshop.latex.external.build.command": "make compile",
+		"latex-workshop.latex.recipes": [
+			{
+				"name": "latexmk (xelatex)",
+				"tools": [
+					"xelatexmk"
+				]
+			},
+			{
+				"name": "XeLaTeX",
+				"tools": [
+					"xelatex"
+				]
+			},
+			{
+				"name": "XeLaTeX ➞ bibtex ➞ XeLaTeX × 2",
+				"tools": [
+					"xelatex",
+					"bibtex",
+					"xelatex",
+					"xelatex"
+				]
+			}
+		],
+		"latex-workshop.latex.tools": [
+
+			{
+				"name": "xelatexmk",
+				"command": "latexmk",
+				"args": [
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"-outdir=%OUTDIR%",
+					"-xelatex",
+					"-usepretex=\\def\\rootpath{%OUTDIR%}"
+				],
+				"env": {}
+			},
+			{
+				"name": "xelatex",
+				"command": "xelatex",
+				"args": [
+					"-synctex=1",
+					"-interaction=nonstopmode",
+					"-file-line-error",
+					"%DOC%"
+				],
+				"env": {}
+			},
+			{
+				"name": "bibtex",
+				"command": "bibtex",
+				"args": [
+					"%DOCFILE%"
+				],
+				"env": {}
+			},
+			{
+				"name": "rnw2tex",
+				"command": "Rscript",
+				"args": [
+					"-e",
+					"knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+				],
+				"env": {}
+			},
+			{
+				"name": "jnw2tex",
+				"command": "julia",
+				"args": [
+					"-e",
+					"using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+				],
+				"env": {}
+			},
+			{
+				"name": "jnw2texmintex",
+				"command": "julia",
+				"args": [
+					"-e",
+					"using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+				],
+				"env": {}
+			},
+			{
+				"name": "tectonic",
+				"command": "tectonic",
+				"args": [
+					"--synctex",
+					"--keep-logs",
+					"%DOC%.tex"
+				],
+				"env": {}
+			}
+		]
+	}
+}

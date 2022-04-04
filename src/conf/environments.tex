@@ -1,0 +1,24 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+% !TEX root = ../main.tex
+
+% \usepackage{ntheorem} % Do not use this package
+\usepackage{thmtools}
+
+% ---
+% Block environments												
+%	---
+
+% Postit like blocks
+\newcommand*\postitblock{enhanced,colback=postitcolor,
+boxrule=0.4pt,sharp corners,
+colframe=postitcolor,fonttitle=\bfseries}
+
+\newcommand*\whiteblock{enhanced,colback=white,
+boxrule=0.4pt,sharp corners,
+colframe=ggrey300,fonttitle=\bfseries}
+
+% Standard block
+\tcbset{enhanced,colback=gblue50,
+boxrule=0.4pt,sharp corners,
+colframe=gblue700,fonttitle=\bfseries}

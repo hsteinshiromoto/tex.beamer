@@ -1,7 +1,0 @@
-compile_pdf:
-  image: aergus/latex
-  script:
-    - xelatex main.tex
-  artifacts:
-    paths:
-      - main.pdf

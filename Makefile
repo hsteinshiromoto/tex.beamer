@@ -45,6 +45,9 @@ endif
 # ---
 # References:
 # 	[1] https://tex.stackexchange.com/questions/79193/is-it-possible-to-pass-definitions-to-latex-from-the-command-line
+# 	[2] https://opensource.com/article/18/8/what-how-makefile
+# 	[3] https://stackoverflow.com/questions/58602758/basic-if-else-statement-in-makefile
+
 all: ${BINS}
 
 %: %.tex
@@ -55,10 +58,6 @@ all: ${BINS}
 
 %.tex:
 	@echo "Creating object $@"
-
-# References:
-# [1] https://opensource.com/article/18/8/what-how-makefile
-# [2] https://stackoverflow.com/questions/58602758/basic-if-else-statement-in-makefile
 
 ## Build base Docker image
 base_image:

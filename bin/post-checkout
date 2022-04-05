@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This file automatically updates the versions of files pyproject.tom and CITATION.cff
-# based on the latest git tag and the release branch name
+# based on the latest git tag and the release branch name of the form release/vX.Y.Z
 
 # Copy this file to .git/hooks/
 PROJECT_ROOT=$(dirname $(readlink -nf post-checkout))

@@ -119,8 +119,8 @@ jobs:
           docker tag $IMAGE_ID:$VERSION $IMAGE_ID:latest
           docker push $IMAGE_ID:latest
 
-  compile:
-    name: Compile deck
+  test:
+    name: Test deck compilation
     needs: [build_app_image]
     runs-on: ubuntu-latest
 
@@ -132,3 +132,62 @@ jobs:
         run: |
           cd /home/tex.beamer
           make
+
+      - name: Upload sample deck
+        uses: actions/upload-artifact@v2
+        with:
+          name: main.pdf
+          path: /home/tex.beamer/src/main.pdf
+          if-no-files-found: error
+
+  release:
+    name: Build release
+    needs: [compile]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+
+    steps:
+      - uses: actions/checkout@v2.2.0
+        with:
+          fetch-depth: 0 # This is necessary to get the second latest tag
+
+      - name: Get previous tag
+        run: echo "::set-output name=tag::$(git describe --abbrev=0 --tags $(git rev-list --tags --skip=1 --max-count=1))"
+        id: previous_tag
+
+      - name: Get current tag
+        run: | 
+          echo "::set-output name=tag::${GITHUB_REF#refs/*/}"
+        id: current_tag
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            **Full Changelog**: https://github.com/${{ github.repository }}/compare/${{ steps.previous_tag.outputs.tag }}...${{ steps.current_tag.outputs.tag }}
+          draft: false
+          prerelease: false
+
+      - name: Download artifact
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: actions/download-artifact@v2
+        with:
+          name: main.pdf
+          path: /home/tex.beamer/src/
+
+      - name: Upload Default CV to Release Asset
+        if: startsWith(github.ref, 'refs/tags/')
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: /home/tex.beamer/src/main.pdf
+          asset_name: main.pdf
+          asset_content_type: application/pdf

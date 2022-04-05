@@ -87,6 +87,10 @@ app_image:
 ## Build all Docker images
 image: base_image app_image
 
+## Git hooks
+hooks:
+	cp bin/post-checkout .git/hooks/post-checkout
+
 # ---
 # Self Documenting Commands
 # ---

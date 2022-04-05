@@ -45,6 +45,9 @@ endif
 # ---
 # References:
 # 	[1] https://tex.stackexchange.com/questions/79193/is-it-possible-to-pass-definitions-to-latex-from-the-command-line
+# 	[2] https://opensource.com/article/18/8/what-how-makefile
+# 	[3] https://stackoverflow.com/questions/58602758/basic-if-else-statement-in-makefile
+
 all: ${BINS}
 
 %: %.tex
@@ -55,10 +58,6 @@ all: ${BINS}
 
 %.tex:
 	@echo "Creating object $@"
-
-# References:
-# [1] https://opensource.com/article/18/8/what-how-makefile
-# [2] https://stackoverflow.com/questions/58602758/basic-if-else-statement-in-makefile
 
 ## Build base Docker image
 base_image:
@@ -88,14 +87,9 @@ app_image:
 ## Build all Docker images
 image: base_image app_image
 
-# pull:
-# 	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}:${DOCKER_TAG})
-# 	docker pull ${DOCKER_IMAGE_TAG}
-# 	docker tag ${DOCKER_IMAGE_TAG} ${DOCKER_IMAGE_NAME}:latest
-
-compile:
-	cd src && ${COMPILER} ${TEXVARIANT} main
-
+## Git hooks
+hooks:
+	cp bin/post-checkout .git/hooks/post-checkout
 
 # ---
 # Self Documenting Commands

@@ -9,18 +9,45 @@ A Presentation Template for XeLaTeX
 
 - [1. TeX.Beamer](#1-texbeamer)
 - [2. Contents](#2-contents)
-- [3. How to Run](#3-how-to-run)
-  - [3.1. Compiling your deck](#31-compiling-your-deck)
-  - [3.2. Cleaning up auxiliary files](#32-cleaning-up-auxiliary-files)
+- [3. Repository Structure](#3-repository-structure)
+- [4. How to Run](#4-how-to-run)
+  - [4.1. Compiling your deck](#41-compiling-your-deck)
+  - [4.2. Cleaning up auxiliary files](#42-cleaning-up-auxiliary-files)
 
-# 3. How to Run
+# 3. Repository Structure
 
-## 3.1. Compiling your deck
+```
+.
+├── CITATION.cff
+├── CITATION.cff-e
+├── Dockerfile
+├── Dockerfile.base
+├── LICENSE
+├── Makefile
+├── README.md
+├── bin
+│   └── post-checkout
+├── poetry.lock
+├── pyproject.toml
+├── src
+│   ├── conf                    <- Config files
+│   │   ├── commands.tex
+│   │   ├── environments.tex    <- Environments settings
+│   │   └── settings.tex
+│   ├── imgs
+│   │   └── logo.eps
+│   └── main.tex
+└── tex.beamer.code-workspace
+```
+
+# 4. How to Run
+
+## 4.1. Compiling your deck
 ```bash
 $ make
 ```
 
-## 3.2. Cleaning up auxiliary files
+## 4.2. Cleaning up auxiliary files
 ```bash
 $ latexmk -c
 ```

@@ -174,14 +174,12 @@ jobs:
           prerelease: false
 
       - name: Download artifact
-        if: startsWith(github.ref, 'refs/tags/')
         uses: actions/download-artifact@v2
         with:
           name: main.pdf
           path: /home/tex.beamer/src/
 
-      - name: Upload Default CV to Release Asset
-        if: startsWith(github.ref, 'refs/tags/')
+      - name: Upload deck to Release Asset
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:

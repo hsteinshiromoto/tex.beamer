@@ -4,7 +4,7 @@
 # based on the latest git tag and the release branch name of the form release/vX.Y.Z
 
 # Copy this file to .git/hooks/
-PROJECT_ROOT=$(dirname $(readlink -nf post-checkout))
+PROJECT_ROOT=$(git rev-parse --show-toplevel)
 PROJECT_NAME=$(basename $(git remote get-url origin) | sed 's/.git//g')
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 BRANCH_TYPE=$(echo ${BRANCH_NAME}| cut -d/ -f1)

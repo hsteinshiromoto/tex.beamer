@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This file automatically updates the versions of files setup.py and __init__.py
+# This file automatically updates the versions of files pyproject.tom and CITATION.cff
 # based on the latest git tag and the release branch name
 
 # Copy this file to .git/hooks/

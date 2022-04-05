@@ -87,15 +87,6 @@ app_image:
 ## Build all Docker images
 image: base_image app_image
 
-# pull:
-# 	$(eval DOCKER_IMAGE_TAG=${DOCKER_IMAGE_NAME}:${DOCKER_TAG})
-# 	docker pull ${DOCKER_IMAGE_TAG}
-# 	docker tag ${DOCKER_IMAGE_TAG} ${DOCKER_IMAGE_NAME}:latest
-
-compile:
-	cd src && ${COMPILER} ${TEXVARIANT} main
-
-
 # ---
 # Self Documenting Commands
 # ---

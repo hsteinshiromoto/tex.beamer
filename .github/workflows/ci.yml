@@ -176,6 +176,20 @@ jobs:
           PROJECT_PATH="/home/tex.beamer/src/"
           latexmk -xelatex -jobname=src/changes -usepretex="\\def\\rootpath{${PROJECT_PATH}/src}" src/changes.tex -f
 
+      - name: Upload log file
+        uses: actions/upload-artifact@v2
+        with:
+          name: changes.log
+          path: /home/tex.beamer/src/changes.log
+          if-no-files-found: error
+
+      - name: Upload changes source
+        uses: actions/upload-artifact@v2
+        with:
+          name: changes.tex
+          path: /home/tex.beamer/src/changes.tex
+          if-no-files-found: error
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

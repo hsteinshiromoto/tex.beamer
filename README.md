@@ -1,12 +1,53 @@
-# Presentation_Template
+[![DOI](https://zenodo.org/badge/249904685.svg)](https://zenodo.org/badge/latestdoi/249904685)
+<!-- [![Documentation Status](https://readthedocs.org/projects/datatoolkit/badge/?version=latest)](https://datatoolkit.readthedocs.io/?badge=latest) -->
+[![Build_and_test_code](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml/badge.svg)](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml)
+
+# 1. TeX.Beamer
 A Presentation Template for XeLaTeX
 
-To be executed with XeLaTeX. 
+# 2. Contents
 
-Dependencies: config files
+- [1. TeX.Beamer](#1-texbeamer)
+- [2. Contents](#2-contents)
+- [3. Repository Structure](#3-repository-structure)
+- [4. How to Run](#4-how-to-run)
+  - [4.1. Compiling your deck](#41-compiling-your-deck)
+  - [4.2. Cleaning up auxiliary files](#42-cleaning-up-auxiliary-files)
 
-commands.tex
-environments.tex
-fonts.tex
-packages.tex
-presentation-cfg.tex
+# 3. Repository Structure
+
+```
+.
+├── CITATION.cff
+├── CITATION.cff-e
+├── Dockerfile
+├── Dockerfile.base
+├── LICENSE
+├── Makefile
+├── README.md
+├── bin
+│   └── post-checkout
+├── poetry.lock
+├── pyproject.toml
+├── src
+│   ├── conf                    <- Config files
+│   │   ├── commands.tex
+│   │   ├── environments.tex    <- Environments settings
+│   │   └── settings.tex
+│   ├── imgs
+│   │   └── logo.eps
+│   └── main.tex
+└── tex.beamer.code-workspace
+```
+
+# 4. How to Run
+
+## 4.1. Compiling your deck
+```bash
+$ make
+```
+
+## 4.2. Cleaning up auxiliary files
+```bash
+$ latexmk -c
+```

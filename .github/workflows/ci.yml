@@ -168,27 +168,29 @@ jobs:
           ref: '${{ steps.previous_tag.outputs.tag }}'
           path: previous
 
-      - name: Run latexdiff
-        run: latexdiff --flatten -t CULINECHBAR previous/src/main.tex src/main.tex > src/changes.tex
+      #! TODO: Check how to run latexdiff with arguments to files
+      # - name: Run latexdiff
+      #   run: latexdiff --flatten -t CULINECHBAR previous/src/main.tex src/main.tex > src/changes.tex
 
-      - name: Compile LaTeX difference document
-        run: |
-          PROJECT_PATH="/home/tex.beamer/src/"
-          latexmk -xelatex -jobname=src/changes -usepretex="\\def\\rootpath{${PROJECT_PATH}/src}" src/changes.tex -f
+      # - name: Upload changes source
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: changes.tex
+      #     path: /home/tex.beamer/src/changes.tex
+      #     if-no-files-found: error
 
-      - name: Upload log file
-        uses: actions/upload-artifact@v2
-        with:
-          name: changes.log
-          path: /home/tex.beamer/src/changes.log
-          if-no-files-found: error
+      # - name: Compile LaTeX difference document
+      #   run: |
+      #     PROJECT_PATH="/home/tex.beamer/src/"
+      #     latexmk -xelatex -jobname=src/changes -usepretex="\\def\\rootpath{${PROJECT_PATH}/src}" src/changes.tex -f
 
-      - name: Upload changes source
-        uses: actions/upload-artifact@v2
-        with:
-          name: changes.tex
-          path: /home/tex.beamer/src/changes.tex
-          if-no-files-found: error
+      # - name: Upload log file
+      #   uses: actions/upload-artifact@v2
+      #   if: always()
+      #   with:
+      #     name: changes.log
+      #     path: /home/tex.beamer/src/changes.log
+      #     if-no-files-found: error
 
       - name: Create Release
         id: create_release
@@ -206,7 +208,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: changes.pdf
+          name: main.pdf
           path: src/
 
       - name: Upload deck to Release Asset
@@ -216,6 +218,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: src/changes.pdf
-          asset_name: changes.pdf
+          asset_path: src/main.pdf
+          asset_name: main.pdf
           asset_content_type: application/pdf

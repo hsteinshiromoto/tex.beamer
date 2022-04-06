@@ -173,7 +173,7 @@ jobs:
 
       - name: Compile LaTeX difference document
         run: |
-          PROJECT_PATH = "/home/tex.beamer/src/"
+          PROJECT_PATH="/home/tex.beamer/src/"
           latexmk -xelatex -jobname=src/changes -usepretex="\\def\\rootpath{${PROJECT_PATH}/src}" src/changes.tex -f
 
       - name: Create Release

@@ -2,6 +2,9 @@
 <!-- [![Documentation Status](https://readthedocs.org/projects/datatoolkit/badge/?version=latest)](https://datatoolkit.readthedocs.io/?badge=latest) -->
 [![Build_and_test_code](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml/badge.svg)](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml)
 
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/hsteinshiromoto/tex.beamer/Docker/master?style=for-the-badge) ![Python Version](https://img.shields.io/badge/python-3-blue?style=for-the-badge) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hsteinshiromoto/tex.beamer?style=for-the-badge)
+
+
 # 1. TeX.Beamer
 A Presentation Template for XeLaTeX
 

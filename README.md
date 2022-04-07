@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/249904685.svg)](https://zenodo.org/badge/latestdoi/249904685) [![Build_and_test_code](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml/badge.svg)](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml) ![Python Version](https://img.shields.io/badge/python-3-blue?style=for-the-badge) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hsteinshiromoto/tex.beamer?style=for-the-badge)
+[![DOI](https://zenodo.org/badge/249904685.svg)](https://zenodo.org/badge/latestdoi/249904685) [![Build_and_test_code](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml/badge.svg)](https://github.com/hsteinshiromoto/tex.beamer/actions/workflows/ci.yml) ![Python Version](https://img.shields.io/badge/python-3-blue?style=flat) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/hsteinshiromoto/tex.beamer?style=flat)
 
 <!-- [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/hsteinshiromoto/tex.beamer/Docker/master?style=for-the-badge)](https://img.shields.io/github/workflow/status/hsteinshiromoto/tex.beamer/CI?style=for-the-badge) -->
 

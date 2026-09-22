@@ -21,14 +21,34 @@
 \usepackage{fontspec}
 	\defaultfontfeatures{Mapping=tex-text,Ligatures={TeX,Common},
                        Scale=MatchUppercase,Color=textcolor}
-	
+
+% Body typeface. TeX Gyre Heros is URW Nimbus Sans, metrically identical to Helvetica,
+% so a machine without Helvetica installed still gets the same measure and rhythm.
+\IfFontExistsTF{Helvetica}{%
+	\setsansfont{Helvetica}%
+}{%
 	\setsansfont[
         Extension      = .otf,
         UprightFont    = *-regular,
         BoldFont       = *-bold,
         ItalicFont     = *-italic,
         BoldItalicFont = *-bolditalic]
-				{texgyreheros}
+				{texgyreheros}%
+}
+
+% Chrome typeface: headline, footline and footnotes. Jost* is a Futura revival, vendored
+% under the OFL in src/fonts/ so the deck builds identically everywhere, CI included.
+\newfontfamily\headerfont[
+        Path           = \rootpath/fonts/,
+        Extension      = .otf,
+        UprightFont    = Jost-400-Book,
+        ItalicFont     = Jost-400-BookItalic,
+        BoldFont       = Jost-700-Bold,
+        BoldItalicFont = Jost-700-BoldItalic]
+				{Jost}
+
+\setbeamerfont{footnote}{family=\headerfont,size=\scriptsize}
+\setbeamerfont{footnote mark}{family=\headerfont}
 
 % ---
 % Language Settings
@@ -275,42 +295,43 @@ pdfproducer={}
 % ---
 % Headline
 % ---
-% Todo: review the need of the commented code below
+% Flat bar: \insertnavigation draws the section names together with the mini frames
+% that show how far into the deck the current slide sits.
+\setbeamercolor{section in head/foot}{fg=white,bg=ggrey900}
+\setbeamercolor{mini frame}{fg=ggrey500,bg=ggrey900}
+\setbeamerfont{section in head/foot}{family=\headerfont,size=\tiny}
+\setbeamersize{mini frame size=1.6mm}
 
-%\setbeamerfont{headline}{series=\bfseries}
-\setbeamercolor{section in head/foot}{fg=white, bg=black}
-% \setbeamercolor{upper separation line head}{bg=white}
-\setbeamertemplate{section in head/foot shaded}%
-                  {\color{white!100!black}\insertsectionhead}
+% \allcaps is the letterspaced uppercase helper defined in conf/commands.tex
+\setbeamertemplate{section in head/foot}{\allcaps{\insertsectionhead}}
+\setbeamertemplate{section in head/foot shaded}{%
+  \color{ggrey500}\allcaps{\insertsectionhead}}
 
-% \makeatletter
-% \setbeamertemplate{headline}
-% {%
-%   \pgfuseshading{beamer@barshade}%
-%   \ifbeamer@sb@subsection%
-%     \vskip-9.75ex%
-%   \else%
-%     \vskip-7ex%
-%   \begin{beamercolorbox}[ignorebg,ht=
-%   \fi%2.25ex,dp=3.75ex]{section in head/foot}
-%     \insertnavigation{\paperwidth}
-%   \end{beamercolorbox}%
-%   \ifbeamer@sb@subsection%
-%     \begin{beamercolorbox}[ignorebg,ht=2.125ex,dp=1.125ex,%
-%       leftskip=.3cm,rightskip=.3cm plus1fil]{subsection in head/foot}
-%       \usebeamerfont{subsection in head/foot}\insertsubsectionhead
-%     \end{beamercolorbox}%
-%   \fi%
-%  \begin{beamercolorbox}[colsep=1.5pt,ht=0.75ex]{upper separation line head}
-%  \end{beamercolorbox}
-% }%
-% \makeatother
-
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.3ex,dp=2.7ex]{section in head/foot}%
+    \hspace*{1.5em}\insertnavigation{\dimexpr\paperwidth-3em\relax}%
+  \end{beamercolorbox}%
+}
 
 % ---
 % Footline
 % ---
-\setbeamercolor{footline}{fg=white,bg=black}
+\setbeamercolor{footline}{fg=ggrey400,bg=ggrey900}
+\setbeamerfont{footline}{family=\headerfont,size=\tiny}
+
+% Deck position, drawn as the top edge of the footline band. Guarded because
+% \inserttotalframenumber defaults to 1 until the .aux is read, so the frame number can
+% exceed it on the first pass.
+\newcommand{\beamerprogressbar}{%
+  \ifnum\insertframenumber<\inserttotalframenumber
+    \textcolor{gblue500}{%
+      \rule{\dimexpr\paperwidth*\insertframenumber/\inserttotalframenumber\relax}{1.6pt}}%
+    \textcolor{ggrey700}{%
+      \rule{\dimexpr\paperwidth-\paperwidth*\insertframenumber/\inserttotalframenumber\relax}{1.6pt}}%
+  \else
+    \textcolor{gblue500}{\rule{\paperwidth}{1.6pt}}%
+  \fi
+}
 
 \makeatletter
 \defbeamertemplate*{footline}{my footline}
@@ -324,13 +345,22 @@ pdfproducer={}
       \vskip0pt%
     \else
   \leavevmode%
+  % One vbox so \nointerlineskip is legal here: it assigns \prevdepth, which needs
+  % vertical mode, and it is what keeps the bar flush against the band below it.
+  \vbox{%
+  \hbox{\beamerprogressbar}%
+  \nointerlineskip
   \hbox{%
-  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,left]{footline}%
-    \usebeamerfont{author in head/foot}\hspace{2em}\insertshortauthor
+  \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.4ex,dp=1.6ex,left]{footline}%
+    \hspace*{1.5em}\usebeamerfont{footline}\insertshortauthor
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.75\paperwidth,ht=2.25ex,dp=1ex,right]{footline}%
-    \usebeamerfont{title in head/foot}\insertshorttitle\hfill (\insertframenumber{} | \inserttotalframenumber) \hspace{2em}
-  \end{beamercolorbox}
+  \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.4ex,dp=1.6ex,center]{footline}%
+    \usebeamerfont{footline}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.4ex,dp=1.6ex,right]{footline}%
+    \usebeamerfont{footline}\textcolor{gblue300}{\insertframenumber}\,/\,\inserttotalframenumber\hspace*{1.5em}
+  \end{beamercolorbox}%
+  }%
   }%
   \vskip0pt%
   \fi

@@ -287,8 +287,31 @@ pdfproducer={}
 % ---
 % Frametitle
 % ---
-% Removes shadow from frametitle
-\setbeamertemplate{frametitle}[default][colsep=-4bp,rounded=false,shadow=false]
+% Flat band, no shadow, and the title centered in it. The stock template pulls the title up
+% with \vbox{}\vskip-1ex and cancels the bottom padding with \vskip-.3cm. That second skip
+% only runs when no optional argument is given, and this template needs one, so the title sat
+% low. Symmetric \sep and no vertical skips center it instead. The struts keep the band the
+% same height whether or not the title has a descender.
+\makeatletter
+\setbeamertemplate{frametitle}{%
+  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  % sep pads all four sides, so it alone cannot set the vertical and the horizontal
+  % padding apart. sep gives the vertical padding, and leftskip tops the left side back
+  % up to the 0.3cm the stock template uses.
+  \begin{beamercolorbox}[sep=0.15cm,leftskip=0.15cm,wd=\the\@tempdima,%
+                         colsep=-4bp,rounded=false,shadow=false]{frametitle}%
+    \usebeamerfont{frametitle}%
+    \strut\insertframetitle\strut\par%
+    \ifx\insertframesubtitle\@empty\else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}%
+       \strut\insertframesubtitle\strut\par}%
+    \fi%
+  \end{beamercolorbox}%
+}
+\makeatother
 
 \setbeamercolor{frametitle}{fg=white,bg=gblue700}
 

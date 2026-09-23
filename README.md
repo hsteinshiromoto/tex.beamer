@@ -123,3 +123,8 @@ track.
 The header bar centers its contents with the `ht` and `dp` keys of its `beamercolorbox`. Their
 sum sets the height of the bar. Change one and change the other by the same amount, or the
 title page and the section pages move too. Those pages draw a blue band down to `\headheight`.
+
+The `frametitle` template sits under the `% Frametitle` banner in the same file. Its `sep` key
+sets the padding on all four sides at once. It therefore sets the height of the blue band and
+the indent of the title together. `leftskip` adds to the left side alone, so use it to set the
+indent without a change to the height.

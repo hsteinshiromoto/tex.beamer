@@ -2,6 +2,12 @@
 
 A running record of the work on `tex.beamer`, newest first.
 
+## 2026-09-23 — Center the frame title in its band
+
+The stock `frametitle` template only cancels its bottom padding when the caller passes no
+optional argument. This template passes one, so the title sat low in the blue band. A custom
+template with symmetric padding centers it. See [2026-09-23.md](2026-09-23.md).
+
 ## 2026-09-22 — Modernize the header, the footer, and the typefaces
 
 The body moved to Helvetica, with TeX Gyre Heros as the fallback. The header, the footer, and
